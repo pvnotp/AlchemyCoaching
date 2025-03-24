@@ -8,7 +8,7 @@ import { DemoAccountService } from '../services/demo-account-service';
   standalone: true,
   imports: [FormsModule, DemoLoginComponent],
   templateUrl: './demo-nav-bar.component.html',
-  styleUrl: './demo-nav-bar.component.css'
+  styleUrl: './demo-nav-bar.component.scss'
 })
 export class DemoNavBarComponent {
 
