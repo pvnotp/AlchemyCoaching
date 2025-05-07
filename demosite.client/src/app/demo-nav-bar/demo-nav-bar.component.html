@@ -1,64 +1,31 @@
-<!--<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-  <div class="container-fluid">-->
-    <!--<ul class="navbar-nav me-auto mb-2 mb-md-0">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Home</a>
-      </li>
-      @if(accountService.currentUser()){
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/members">Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/members">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/lists">Media</a>
-      </li>
-      }
-    </ul>-->
-
-
-    <!--<input id="menu-toggle" type="checkbox" />
-    <label class='menu-button-container' for="menu-toggle">
-      <div class='menu-button'></div>
-    </label>
-    <ul class="menu">
-      <li>Packages</li>
-      <li>About</li>
-      <li>Media</li>
-      <li>Groups</li>
-      @if(accountService.currentUser()){
-      <li>Client Dashboard</li>
-      }
-
-    </ul>
-
-
-    <form class="d-flex" #loginForm="ngForm" (ngSubmit)="logout()" autocomplete="off">
-      <button class="btn btn-outline-success" type="submit">Log Out</button>
-    </form>
-    @if(!accountService.currentUser()){
-    <app-demo-login><</app-demo-login>
-    }
-  </div>
-</nav>-->
-
 
 <section class="top-nav">
-<div class="title">
-  Courtney Edwards MS, BCC
-</div>
-<input id="menu-toggle" type="checkbox" />
-<label class='menu-button-container' for="menu-toggle">
-  <div class='menu-button'></div>
-</label>
-<ul class="menu">
-  <li>Services</li>
-  <li>About</li>
-  <li>Groups</li>
-  <li>Media</li>
-  @if(accountService.currentUser()){
-  <li>Client Dashboard</li>
-  }
-</ul>
-  </section>
+  <div class="title">
+    Courtney Edwards MS, BCC
+  </div>
+  <input id="menu-toggle" type="checkbox" />
+  <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+  <ul class="menu">
+    <li>
+      <a routerLink="#">Home</a>
+    </li>
+    <li>Services</li>
+    <li>About</li>
+    <li>Groups</li>
+    <li>Media</li>
+    @if(accountService.currentUser()){
+    <li>Client Portal</li>
+    }
+    @else{
+    <li>
+      <button (click)="toggleLogin()">Log In</button>
+    </li>
+    }
+  </ul>
+</section>
+
+@if( displayLogin ){
+<app-login></app-login>
+}

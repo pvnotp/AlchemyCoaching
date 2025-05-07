@@ -5,16 +5,19 @@ $light: #E2EBDD;
 
 
 body {
-  min-height: 1000px;
+  min-height: calc(100vh - 50px);
   background-color: $dark;
 }
 
 .banner {
   background-image: url("home-background-herbs.jpg");
   background-size: cover;
-  min-height: 375px;
-  max-height: 375px;
-  border-bottom: 3px double $light;
+  min-height: 400px;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .top-section {
@@ -22,7 +25,9 @@ body {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 50px;
+  padding-bottom: 0px;
+
 }
 
 .top-content {
@@ -32,13 +37,13 @@ body {
   flex-wrap: wrap;
   grid-column-gap: 50px;
   grid-row-gap: 0px;
-  padding: 20px;
-  padding-bottom: 30px;
+  padding: 10px;
+  padding-bottom: 20px;
   max-width: 900px;
   margin: 0;
   color: $light;
   background-color: $dark;
-  border: 3px double;
+  border: 1px solid;
 
 }
 
@@ -85,7 +90,7 @@ body {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
-  z-index: 1;
+  //z-index: 1;
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)), linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
   -webkit-mask-size: 100% 50%;
   -webkit-mask-repeat: no-repeat;
@@ -118,53 +123,98 @@ $item-count: 5;
   }
 }
 
-
-
-.bottom-content {
-  display: flex;
-  align-items: start;
+.tagline {
   color: $light;
-  padding-top: 30px;
-  display: flex;
-  align-content: start;
-  justify-content: flex-start;
+  font-family: "Ephesis";
+  font-size: 60px;
+  height: 75px;
+  white-space: nowrap;
+}
 
+.banner-link-bar {
+    width: 100vw;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    background: $light;
+    color: $dark;
+    display: flex;
+    align-content: start;
+    justify-content: flex-start;
+}
+
+.banner-link {
+  color: $dark;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: "Raleway";
+  margin-top: -4px;
+  min-width: 300px;
+}
+
+a {
+  color: $dark;
+  text-decoration: none;
+}
+
+
+.bottom-section {
+  color: $light;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-top: -100px;
+}
+
+.portrait-container {
+  width: 50vw;
+  display: flex;
+  justify-content: right;
 }
 
 .portrait {
   background-image: url(courtney.jpg);
   background-size: cover;
   background-position: top;
-  min-height: 600px;
   min-width: 300px;
-  max-width: 600px;
+  max-width: 500px;
   width: 40vw;
-  padding: 20px;
-  border: 3px double;
+  min-height: 500px;
+  border: 1px solid;
   color: $light;
-  font-family: "Ephesis";
-  font-size: 60px;
-  display: flex;
-  justify-content: flex-end;
-  white-space: nowrap;
-}
-
-.btn {
- padding: 15px;
- margin-left: 20px;
- background-color: $light;
- font-family: "Raleway";
- font-weight: 100;
- font-size: 20px;
- 
 }
 
 
-.description {
+
+.right-section {
+  margin-left: 2.5vw;
+}
+
+.description-primary {
   color: $light;
   font-family: "Forum";
-  font-size: 25px;
-  padding: 30px;
+  font-size: 30px;
+  //padding: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  //margin-left: 2.5vw;
   width: 40vw;
-  max-width: 600px;
+}
+
+.description-container {
+  width: 40vw; margin: 0; padding: 0;
+}
+
+.description-secondary {
+  color: $light;
+  font-family: "Forum";
+  font-size: 20px;
+  max-width: 300px;
+  width: 40vw;
+}
+
+@media (max-width: 600px) {
+  //TODO
 }
