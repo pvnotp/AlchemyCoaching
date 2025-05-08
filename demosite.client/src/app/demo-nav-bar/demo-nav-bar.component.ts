@@ -15,16 +15,19 @@ export class DemoNavBarComponent {
 
   accountService = inject(DemoAccountService);
   displayLogin: boolean = false;
-  constructor() {
-    console.log("hello" + this.accountService.currentUser());
-  }
+  displayPortalMenu: boolean = false;
   
 
   toggleLogin() {
     this.displayLogin = !this.displayLogin;
   }
 
+  togglePortalMenu() {
+    this.displayPortalMenu = !this.displayPortalMenu;
+  }
+
   logout() {
     this.accountService.logout();
+    this.displayPortalMenu = false;
   }
 }

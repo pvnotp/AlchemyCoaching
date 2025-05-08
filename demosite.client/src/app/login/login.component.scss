@@ -1,16 +1,49 @@
-$white: white;
-$dark: #021610;
-$light: #E2EBDD;
+@import '../../style-variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
-.dropdown-toggle {
+
+.login {
+    position: absolute;
+    right: 10px;
+    top: 55px;
+    background-color: transparent;
+    z-index: 3;
 }
 
-.login-form {
-    display: none;
-    right: 0;
+.login-input {
+  height: 25px;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  font-size: 15px;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid white;
 }
 
-.input {
-    float: right;
+.submit-btn-container{
+    display: flex;
+    justify-content: space-between;
 }
 
+.submit-btn {
+  font-family: Tenor Sans;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 3px;
+  margin: 3px;
+  padding: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 10px;
+  background-color: rgb(0,0,0,20%);
+  opacity: 80%;
+}
+
+.submit-btn:hover {
+  background-color: white;
+  color: darkslategrey;
+}

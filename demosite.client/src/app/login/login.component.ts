@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input, output, OutputEmitterRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DemoAccountService, userLogin } from '../services/demo-account-service';
 import { Router } from '@angular/router';
@@ -16,6 +16,7 @@ export class LoginComponent {
 
   accountService = inject(DemoAccountService);
   private router = inject(Router);
+  loginSuccessful: OutputEmitterRef<void> = output();
   userLogin: userLogin = {
     email: null,
     password: null
@@ -26,7 +27,7 @@ export class LoginComponent {
       mergeMap(_ => this.accountService.setUser(this.userLogin))
     ).subscribe({
       next: _ => {
-        this.router.navigateByUrl('/client-portal-home')
+        this.loginSuccessful.emit();
       },
       error: error => console.log(error)
     });

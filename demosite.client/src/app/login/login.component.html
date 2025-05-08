@@ -1,26 +1,21 @@
 
-<!--<form class="d-flex" #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+
+<form class="show login" (ngSubmit)="login()">
   <input name="email"
-         class="form-control me-2"
-         placeholder="Email Address"
-         [(ngModel)]="userLogin.email" />
-  <input name="password"
-         class="form-control me-2"
-         placeholder="Password"
-         [(ngModel)]="userLogin.password" />
-  <<button class="btn btn-outline-success" type="submit">Log In</button>
-</form>-->
+         placeholder="EMAIL ADDRESS"
+         [(ngModel)]="userLogin.email"
+         class="login-input" />
+  <br>
+  <input type="password" name="password"
+         placeholder="PASSWORD"
+         [(ngModel)]="userLogin.password"
+         class="login-input" />
+  <br>
+  <div class="submit-btn-container">
+    <button class="submit-btn" type="submit">Submit</button>
+    <button class="submit-btn" disabled>Register</button>
+    <button class="submit-btn" disabled>Forgot Password</button>
+  </div>
 
-<div class="login">
-  <form>
-    <input name="email"
-            placeholder="Email Address"
-            [(ngModel)]="userLogin.email" />
-    <input name="password"
-            placeholder="Password"
-            [(ngModel)]="userLogin.password" />
-    <button (onClick)="login()"></button>
-  </form>
-</div>
-
+</form>
 
