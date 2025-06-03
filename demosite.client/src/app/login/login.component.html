@@ -1,6 +1,7 @@
 
 
-<form class="show login" (ngSubmit)="login()">
+<!--<form class="show login" (ngSubmit)="login()">-->
+<form class="login" (ngSubmit)="login()">
   <input name="email"
          placeholder="EMAIL ADDRESS"
          [(ngModel)]="userLogin.email"
@@ -13,8 +14,8 @@
   <br>
   <div class="submit-btn-container">
     <button class="submit-btn" type="submit">Submit</button>
-    <button class="submit-btn" disabled>Register</button>
-    <button class="submit-btn" disabled>Forgot Password</button>
+    <button class="submit-btn">Register</button>
+    <button class="submit-btn">Forgot Password</button>
   </div>
 
 </form>

@@ -25,7 +25,7 @@ export interface user {
   providedIn: 'root',
 })
 
-export class DemoAccountService {
+export class AccountService {
   private http = inject(HttpClient);
   baseUrl = 'https://localhost:7152/';
   currentUser = signal<user | null>(null);

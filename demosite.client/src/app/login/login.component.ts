@@ -1,6 +1,6 @@
-import { Component, inject, input, output, OutputEmitterRef } from '@angular/core';
+import { Component, HostListener, inject, input, output, OutputEmitterRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DemoAccountService, userLogin } from '../services/demo-account-service';
+import { AccountService, userLogin } from '../services/account-service';
 import { Router } from '@angular/router';
 import { mergeMap } from 'rxjs/operators';
 
@@ -14,13 +14,13 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class LoginComponent {
 
-  accountService = inject(DemoAccountService);
+  accountService = inject(AccountService);
   private router = inject(Router);
   loginSuccessful: OutputEmitterRef<void> = output();
   userLogin: userLogin = {
     email: null,
     password: null
-  };
+  }
 
   login() {
     this.accountService.setToken(this.userLogin).pipe(
@@ -32,4 +32,5 @@ export class LoginComponent {
       error: error => console.log(error)
     });
   }
+  
 }

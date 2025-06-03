@@ -1,21 +1,21 @@
 
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DemoNavBarComponent } from './demo-nav-bar/demo-nav-bar.component';
-import { DemoAccountService } from './services/demo-account-service';
+import { AccountService } from './services/account-service';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [DemoNavBarComponent, RouterOutlet],
+  imports: [NavBarComponent, RouterOutlet],
   standalone: true,
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
   title = 'Client Portal';
-  accountService = inject(DemoAccountService);
+  accountService = inject(AccountService);
 
   ngOnInit(): void {
     this.setCurrentUser();
