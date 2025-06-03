@@ -13,7 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DemoDbContext>(options =>
 {
     options
-    .UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+    .UseSqlite("Data Source=Data/ClientDatabase.db");
+    //.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
     //.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
 });
 
