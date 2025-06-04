@@ -7,6 +7,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   overflow: auto;
+  min-height: calc(100lvh - 50px);
 }
 
 
@@ -90,6 +91,12 @@ body {
   align-self: center;
   flex-direction: column;
   flex: auto;
+}
+
+@media (width < 550px){
+    .right-content{
+        max-height: 100%;
+    }
 }
 
 .coach-description {

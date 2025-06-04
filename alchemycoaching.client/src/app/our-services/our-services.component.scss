@@ -7,13 +7,13 @@ body {
   background-position: top;
   background-repeat: no-repeat;
   overflow: auto;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100lvh - 50px);
 
 }
 
 .page-container {
   backdrop-filter: brightness(80%) contrast(60%);
-  min-height: calc(100vh - 50px);
+  min-height: calc(100lvh - 50px);
 }
 
 .thumbnails-container{
@@ -83,7 +83,6 @@ body {
   color: $dark;
   padding: 10px;
   background: $light;
-  max-height: 300px;
   overflow-y: auto;
 }
 
@@ -124,10 +123,11 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 10px;
+  padding: calc(min(10px, 1vw));
   border-radius: 15px;
   margin: calc(min(20px, 1vw));
-  min-width: 125px;
+  min-width: 70px;
+  font-size: calc(min(15px, 3.8vw));
 }
 
 

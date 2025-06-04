@@ -14,9 +14,6 @@ import { LoginComponent } from '../login/login.component';
 export class NavBarComponent {
 
   accountService = inject(AccountService);
-  displayLogin: boolean = false;
-  displayMenu: boolean = false;
-  displayPortalMenu: boolean = false;
   screenWidth = window.innerWidth;
 
   ngOnInit() {
@@ -32,18 +29,14 @@ export class NavBarComponent {
     this.screenWidth = window.innerWidth;
   }
 
-  openLogin() {
-    this.displayLogin = true;
-    this.displayMenu = false;
-  }
-
   onLoginSuccess() {
     document.getElementById("login-popover")?.hidePopover();
     document.getElementById("client-portal-menu")?.classList.remove("hide");
+    document.getElementsByClassName("top-nav")[0].classList.add("dropdown");
   }
 
   toggleMenu() {
-    this.displayMenu = !this.displayMenu;
+    document.getElementsByClassName("top-nav")[0].classList.toggle("dropdown");
   }
 
   togglePortalMenu() {
