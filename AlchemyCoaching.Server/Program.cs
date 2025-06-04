@@ -2,8 +2,7 @@
 using ClientPortal.Server.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PersonalSite.Server.Data;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
+using AlchemyCoaching.Server.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DemoDbContext>(options =>
 {
     options
-    .UseSqlite("Data Source=Data/ClientDatabase.db");
-    //.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+    .UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+    //.UseSqlite("Data Source=Data/ClientDatabase.db");
     //.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
 });
 

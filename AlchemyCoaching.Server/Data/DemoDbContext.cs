@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace PersonalSite.Server.Data
+namespace AlchemyCoaching.Server.Data
 {
     public class DemoDbContext(DbContextOptions options) : IdentityDbContext<User, IdentityRole, string>(options)
     {
@@ -39,7 +39,7 @@ namespace PersonalSite.Server.Data
 
 
             base.OnModelCreating(builder);
-            builder.HasDefaultSchema("PersonalSite");
+            builder.HasDefaultSchema("AlchemyCoaching");
             builder.Entity<User>().HasData(fakeUsers);
             builder.Entity<Appointment>().HasData(fakeAppointments);
             builder.Entity<IdentityRole>()

@@ -1,11 +1,11 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PersonalSite.Server.Data;
+using AlchemyCoaching.Server.Data;
 using Microsoft.AspNetCore.Identity;
 using ClientPortal.Server.Entities;
 
-namespace PersonalSite.Server.Controllers
+namespace AlchemyCoaching.Server.Controllers
 {
     [Route("users")]
     [ApiController]
