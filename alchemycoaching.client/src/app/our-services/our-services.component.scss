@@ -7,11 +7,13 @@ body {
   background-position: top;
   background-repeat: no-repeat;
   overflow: auto;
+  min-height: calc(100vh - 50px);
 
 }
 
 .page-container {
   backdrop-filter: brightness(80%) contrast(60%);
+  min-height: calc(100vh - 50px);
 }
 
 .thumbnails-container{
