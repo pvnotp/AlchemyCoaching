@@ -9,13 +9,14 @@ namespace AlchemyCoaching.Server.Controllers
 {
     [Route("users")]
     [ApiController]
-    public class UsersController(DemoDbContext context) : ControllerBase
+    public class UsersController(DemoDbContext context, ILogger<UsersController> logger) : ControllerBase
     {
 
         // GET: api/users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
+            logger.LogInformation("HELLO");
             return await context.Users.ToListAsync();
         }
 

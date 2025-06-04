@@ -33,6 +33,13 @@ builder.Services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<DemoDb
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.AddConsole();
+    loggingBuilder.AddDebug();
+    loggingBuilder.AddAzureWebAppDiagnostics();
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
