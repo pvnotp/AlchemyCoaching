@@ -15,7 +15,7 @@
   margin: 5px;
   padding: 5px;
   font-size: 15px;
-  width: 285px;
+  width: 295px;
   border-radius: 3px;
   border: 1px solid white;
 }
@@ -23,9 +23,11 @@
 .submit-btn-container{
     display: flex;
     justify-content: space-between;
+    padding: 5px;
+    padding-top: 10px;
 }
 
-.submit-btn {
+button {
   color: white;
   border: 2px solid white;
   border-radius: 3px;
@@ -36,16 +38,24 @@
   background-color: transparent;
 }
 
-.submit-btn:hover {
+button:hover {
   background-color: white;
   color: darkslategrey;
 }
 
-@media (max-width: 900px) {
-  //.login{
-  //    position: relative;
-  //    top: 0;
-  //    right: 0;
-  //}
+button:disabled{
+    background-color: $medium;
+    color: $dark;
+    border: $medium 3px solid;
+}
 
+#submit-btn{
+    width: 70px;
+}
+
+.error {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 4px;
 }

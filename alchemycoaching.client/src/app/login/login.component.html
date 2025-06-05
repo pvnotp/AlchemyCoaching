@@ -13,10 +13,19 @@
          class="login-input" />
   <br>
   <div class="submit-btn-container">
-    <button class="submit-btn" type="submit">Submit</button>
-    <button class="submit-btn">Register</button>
-    <button class="submit-btn">Forgot Password</button>
+    <button id="submit-btn" type="submit">
+      @if(loading){
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      }
+      @else{
+      Submit
+      }
+    </button>
+    <button disabled>Register</button>
+    <button disabled>Forgot Password</button>
   </div>
+
+  <div class="error">{{errorMessage}}</div>
 
 </form>
 

@@ -1,8 +1,9 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../services/account-service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router, NavigationStart } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,6 +16,16 @@ export class NavBarComponent {
 
   accountService = inject(AccountService);
   screenWidth = window.innerWidth;
+  routerSubscription: Subscription;
+
+  constructor(private router: Router) {
+    this.routerSubscription = this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.toggleMenu();
+      }
+    });
+  }
+
 
   ngOnInit() {
     this.getScreenWidth();
