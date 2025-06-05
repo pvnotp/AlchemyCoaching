@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "run-script-os",
     "build": "ng build --output-hashing=none --configuration=production",
+    "build:local": "ng build --output-hashing=none --configuration=development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prestart": "node aspnetcore-https",
