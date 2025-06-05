@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { map, mergeMap } from 'rxjs';
+import { environment } from '../../environments/environment'
 
 
 export interface userLogin {
@@ -27,7 +28,7 @@ export interface user {
 
 export class AccountService {
   private http = inject(HttpClient);
-  baseUrl = 'https://localhost:7152/';
+  baseUrl = environment.apiUrl;
   currentUser = signal<user | null>(null);
 
 
