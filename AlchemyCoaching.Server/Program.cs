@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DemoDbContext>(options =>
 {
     options
-    .UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+    .UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnection"));
     //.UseSqlite("Data Source=Data/ClientDatabase.db");
     //.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
 });
