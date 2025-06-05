@@ -21,7 +21,7 @@ export class NavBarComponent {
   constructor(private router: Router) {
     this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        this.toggleMenu();
+        document.getElementsByClassName("top-nav")[0].classList.remove("dropdown");
       }
     });
   }
