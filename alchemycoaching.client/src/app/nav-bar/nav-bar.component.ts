@@ -1,6 +1,6 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AccountService } from '../services/account-service';
+import { AccountService } from '../_services/account-service';
 import { RouterLink, Router, NavigationStart } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { Subscription } from 'rxjs';

@@ -1,219 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 @import '../../style-variables.scss';
 
-
 body {
-  //min-height: calc(100vh - 90px);
-  background-color: $dark;
-}
-
-.banner {
-  background-image: url("home-background-herbs.jpg");
+  background-image: url('courtney-full-page.jpg');
+  background-attachment: fixed;
   background-size: cover;
-  min-height: 400px;
-  max-height: 400px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.top-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 50px;
-  padding-bottom: 0px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  overflow: auto;
 
 }
 
-.top-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  grid-column-gap: 50px;
-  grid-row-gap: 0px;
-  padding: 10px;
-  padding-bottom: 20px;
-  max-width: 850px;
-  margin: 0;
-  color: $light;
-  background-color: rgb($dark, 0.5);
-  border: 1px solid rgb($light, 0.5);
-
+.page-container {
+  backdrop-filter: brightness(80%) contrast(70%);
+  height: calc(100lvh - 50px);
 }
 
-.icons{
-    font-size: 30px;
-}
-
-.title-container {
-  font-size: 50px;
-  display: flex;
-  align-items: center;
-  letter-spacing: .02em;
-  column-gap: 10px;
+.title-container{
+    position: fixed;
+    top: calc(max(70px, 20lvh));
+    left: calc(min(7vw, 80px));
 
 }
-
-@import url(https://fonts.googleapis.com/css?family=Ephesis);
 .title {
-  font-family: "Ephesis";
-  font-size: 60px;
-  font-weight: 00;
-
+  font-family: Tenor Sans;
+  font-size: calc(min(90px, 22vw));
+  color: white;
 }
 
-.subtitle-container {
-  font-family: "Forum";
-  font-size: 25px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  font-size: 2rem;
-  font-weight: 100;
-
+.subtitle {
+  font-family: Tenor Sans;
+  font-size: calc(min(18px, 4.4vw));
+  margin-top: -25px;
+  color: white;
 }
 
-.subtitle-scroll{
-  height: 3rem;
-  margin: 0;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: bottom;
-  //z-index: 1;
-  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)), linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-  -webkit-mask-size: 100% 50%;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: left top, left bottom;
-}
-
-ul {
-  padding: 0;
-  animation: scrollUp 12s infinite;
-
-  li {
+.button-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    list-style: none;
-    opacity: 1;
-  }
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 15px;
 }
 
-
-// Variables
-$item-count: 5;
-
-@keyframes scrollUp {
-  @for $i from 1 through ($item-count - 1) {
-    #{($i * 25) - 10%}, #{$i * 25%} {
-      transform: translateY((-100% / $item-count) * $i);
-    }
-  }
-}
-
-.tagline {
-  color: $light;
-  font-family: "Ephesis";
-  font-size: 60px;
-  height: 75px;
+.button {
+  border: 2px white solid;
+  border-radius: 4px;
+  font-family: Tenor Sans;
+  font-size: 12px;
+  letter-spacing: .14em;
+  font-weight: 400;
+  padding: 12px;
+  color: white;
   white-space: nowrap;
+  background-color: rgb(0,0,0,20%);
 }
 
-.banner-link-bar {
-    height: 30px;
-    padding: 0;
-    margin: 0;
-    background: $light;
-    color: $dark;
-    display: flex;
-    align-content: start;
-    justify-content: flex-start;
+.button:hover {
+    background-color: white;
+    color: transparent;
+    opacity: 80%;
 }
 
-.banner-link {
-  color: $dark;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-family: "Raleway";
-  margin-top: -4px;
-  min-width: 300px;
-}
 
 a {
-  color: $dark;
   text-decoration: none;
+  color: white;
 }
 
-a:hover {
-  font-weight: 1000;
+a:hover{
+    color: $dark
 }
 
-
-.bottom-section {
-  color: $light;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  margin-top: -100px;
-  padding-bottom: 40px;
+.button:hover a{
+    color: $dark;
 }
 
-.portrait-container {
-  width: 50vw;
-  display: flex;
-  justify-content: right;
+.description {
+    font-family: Tenor Sans;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-transform: lowercase;
 }
 
-.portrait {
-  background-image: url(courtney.jpg);
-  background-size: cover;
-  background-position: center;
-  min-width: 300px;
-  max-width: 500px;
-  width: 40vw;
-  min-height: 500px;
-  border: 1px solid $light;
-  color: $light;
-}
-
-
-
-.right-section {
-  margin-left: 2.5vw;
-}
-
-.description-primary {
-  color: $light;
-  font-family: "Forum";
-  font-size: 30px;
-  //padding: 20px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  //margin-left: 2.5vw;
-  width: 40vw;
-}
-
-.description-container {
-  width: 40vw;
-  margin: 0;
-  padding: 0;
-}
-
-.description-secondary {
-  color: $light;
-  font-family: "Forum";
-  font-size: 20px;
-  max-width: 300px;
-  width: 40vw;
-
-}
-
-@media (max-width: 600px) {
-  //TODO
+.toggle-home {
+    border-radius: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }

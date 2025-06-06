@@ -1,11 +1,14 @@
-﻿namespace ClientPortal.Server.Entities
+﻿using AlchemyCoaching.Server.Entities;
+
+namespace ClientPortal.Server.Entities
 {
     public class Appointment
     {
         public int Id { get; set; }
-        public string ClientId { get; set; }
-        public DateTime Time { get; set; }
-        public Location Location { get; set; }
+        public required string ClientId { get; set; }
+        public required Coach Coach { get; set; }
+        public required DateTime Time { get; set; }
+        public required Location Location { get; set; }
         public string? Note { get; set; }
     }
 }

@@ -12,8 +12,8 @@
       @if(accountService.currentUser()){
 
       @if(screenWidth > 900){
-      <li class="dropdown-toggle">
-        <button (click)="togglePortalMenu()">{{ accountService.currentUser()?.firstName }}  {{ accountService.currentUser()?.lastName?.charAt(0) }}.</button>
+      <li>
+        <button class="dropdown-toggle" (click)="togglePortalMenu()">{{ accountService.currentUser()?.name }}</button>
       </li>
       }
       @else{

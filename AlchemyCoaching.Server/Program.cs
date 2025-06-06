@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DemoDbContext>(options =>
 {
     options
-    .UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnection"));
+    .UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnection"), options => options.EnableRetryOnFailure());
     //.UseSqlite("Data Source=Data/ClientDatabase.db");
     //.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
 });
@@ -29,7 +29,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddIdentityApiEndpoints<User>().AddEntityFrameworkStores<DemoDbContext>();
+builder.Services.AddIdentityApiEndpoints<PortalUser>().AddEntityFrameworkStores<DemoDbContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -64,6 +64,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
-app.MapGroup("/users").MapIdentityApi<User>();
+app.MapGroup("/users").MapIdentityApi<PortalUser>();
 
 app.Run();

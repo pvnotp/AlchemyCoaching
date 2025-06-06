@@ -6,18 +6,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlchemyCoaching.Server.Data
 {
-    public class DemoDbContext(DbContextOptions options) : IdentityDbContext<User, IdentityRole, string>(options)
+    public class DemoDbContext(DbContextOptions options) : IdentityDbContext<PortalUser, IdentityRole, string>(options)
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<PortalUser> PortalUsers { get; set; }
         public DbSet<Appointment> Appointment { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            var passwordHasher = new PasswordHasher<User>();
-            var userFaker = new Faker<User>()
+            var passwordHasher = new PasswordHasher<PortalUser>();
+            var userFaker = new Faker<PortalUser>()
                 .RuleFor(u => u.Id, f => Guid.NewGuid().ToString())
-                .RuleFor(u => u.FirstName, f => f.Person.FirstName)
-                .RuleFor(u => u.LastName, f => f.Person.LastName)
-                .RuleFor(u => u.Email, (f, u)=> f.Internet.Email(u.FirstName, u.LastName, "email.com"))
+                .RuleFor(u => u.Name, f => f.Person.FirstName)
+                .RuleFor(u => u.Email, (f, u)=> f.Internet.Email(u.Name, f.Person.LastName, "email.com"))
                 .RuleFor(u => u.NormalizedEmail, (f, u) => u.Email?.ToLower())
                 .RuleFor(u => u.UserName, (f, u) => u.NormalizedEmail)
                 .RuleFor(u => u.NormalizedUserName, (f, u) => u.NormalizedEmail)
@@ -26,12 +25,25 @@ namespace AlchemyCoaching.Server.Data
 
             var fakeUsers = userFaker.GenerateBetween(10, 10);
 
+            var alison = new PortalUser
+            {
+                Id = new Guid().ToString(),
+                Name = "Alison",
+                Email = "alisonjoyforster@gmail.com",
+                NormalizedEmail = "alisonjoyforster@gmail.com",
+                UserName = "alisonjoyforster@gmail.com",
+                NormalizedUserName = "alisonjoyforster@gmail.com",
+                TwoFactorEnabled = false
+            };
+
+            alison.PasswordHash = passwordHasher.HashPassword(alison, "password");
+            fakeUsers.Add(alison);
 
             var randomIndex = new Random();
             var appointmentFaker = new Faker<Appointment>()
                 .RuleFor(u => u.Id, f => f.IndexFaker + 1)
                 .RuleFor(a => a.ClientId, f => fakeUsers[randomIndex.Next(1,10)].Id)
-                .RuleFor(a => a.Time, f => f.Date.Between(new DateTime(2025, 1, 1), new DateTime(2025, 7, 1)))
+                .RuleFor(a => a.Time, f => f.Date.Between(new DateTime(2025, 1, 1), new DateTime(2025, 12, 31)))
                 .RuleFor(a => a.Location, f => Location.Online)
                 .RuleFor(a => a.Note, f => f.Lorem.Text());
 
@@ -40,7 +52,7 @@ namespace AlchemyCoaching.Server.Data
 
             base.OnModelCreating(builder);
             builder.HasDefaultSchema("AlchemyCoaching");
-            builder.Entity<User>().HasData(fakeUsers);
+            builder.Entity<PortalUser>().HasData(fakeUsers);
             builder.Entity<Appointment>().HasData(fakeAppointments);
             builder.Entity<IdentityRole>()
                 .HasData(
@@ -49,6 +61,12 @@ namespace AlchemyCoaching.Server.Data
                         Id = Guid.NewGuid().ToString(),
                         Name = "Client",
                         NormalizedName = "CLIENT",
+                    },
+                    new IdentityRole
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Name = "Coach",
+                        NormalizedName = "COACH",
                     },
                     new IdentityRole
                     {

@@ -35,6 +35,9 @@ namespace AlchemyCoaching.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Coach")
+                        .HasColumnType("int");
+
                     b.Property<int>("Location")
                         .HasColumnType("int");
 
@@ -52,246 +55,276 @@ namespace AlchemyCoaching.Server.Migrations
                         new
                         {
                             Id = 1,
-                            ClientId = "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988",
+                            ClientId = "0f3d69cb-418e-4810-b56b-152226572cf3",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Suscipit ipsum ea aliquid aut ut omnis et quo. Natus nisi est vero consequuntur qui. Quibusdam nihil sit. Itaque repellat excepturi accusamus sed. Enim praesentium voluptas optio tenetur et et similique magni.",
-                            Time = new DateTime(2025, 2, 23, 19, 59, 53, 108, DateTimeKind.Unspecified).AddTicks(3833)
+                            Note = "Ut tempora sit rerum corporis.\nVoluptatem dolores quia quos officia voluptate temporibus.\nAsperiores nemo fugiat facilis reprehenderit ab.",
+                            Time = new DateTime(2025, 11, 7, 0, 44, 2, 220, DateTimeKind.Unspecified).AddTicks(1834)
                         },
                         new
                         {
                             Id = 2,
-                            ClientId = "9844b374-0a9a-486f-8d6d-86fc85c6ceb0",
+                            ClientId = "662ee75a-277e-45e9-b435-52b5f4dfd9c6",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Eius facilis id quis architecto.\nNon voluptas iusto sint sit et autem consequatur.\nEst et voluptatem magni illo delectus est.\nVelit tempora libero omnis et sit autem laborum.\nVoluptatem similique consectetur reprehenderit modi est quia et corrupti.",
-                            Time = new DateTime(2025, 3, 11, 23, 13, 56, 761, DateTimeKind.Unspecified).AddTicks(3110)
+                            Note = "Et animi voluptate nihil aut impedit nobis.\nSimilique voluptatem tempore et molestiae error.\nDolore sunt suscipit in.\nQuasi dolor aperiam modi similique tempore qui est.",
+                            Time = new DateTime(2025, 8, 19, 1, 33, 5, 990, DateTimeKind.Unspecified).AddTicks(9214)
                         },
                         new
                         {
                             Id = 3,
-                            ClientId = "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988",
+                            ClientId = "24d787eb-988d-48fa-997a-d051ceb30443",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Aliquam ut et dicta velit quibusdam ut numquam voluptatum.\nDolores eius at debitis sint.",
-                            Time = new DateTime(2025, 1, 25, 23, 37, 28, 112, DateTimeKind.Unspecified).AddTicks(7457)
+                            Note = "Nam ex tenetur eos dolor exercitationem non molestias tempore. Tenetur aut distinctio consequatur asperiores. Illo aut provident sunt saepe sequi. Labore ad nostrum qui maxime aliquam. Aspernatur repellendus qui. Illo corporis occaecati odit repellat voluptatum recusandae eum.",
+                            Time = new DateTime(2025, 10, 2, 16, 50, 18, 792, DateTimeKind.Unspecified).AddTicks(8219)
                         },
                         new
                         {
                             Id = 4,
-                            ClientId = "7bb53c7e-feae-47c3-9bf8-d47e4b66055b",
+                            ClientId = "662ee75a-277e-45e9-b435-52b5f4dfd9c6",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Consectetur aliquam sunt et corrupti molestiae aut accusamus aperiam. Excepturi suscipit aliquam autem sunt vitae quia. Reiciendis tempora autem qui dolore.",
-                            Time = new DateTime(2025, 3, 29, 7, 2, 13, 33, DateTimeKind.Unspecified).AddTicks(7589)
+                            Note = "Iure tempora qui fuga magni hic facilis fugiat et quo.\nDicta doloremque qui autem amet molestiae.\nUt suscipit quaerat inventore eum incidunt natus rerum quaerat.\nOfficia quia qui fugiat et dignissimos.\nSoluta numquam aliquid exercitationem est doloremque voluptatem labore aperiam blanditiis.",
+                            Time = new DateTime(2025, 1, 7, 5, 6, 14, 866, DateTimeKind.Unspecified).AddTicks(4851)
                         },
                         new
                         {
                             Id = 5,
-                            ClientId = "9844b374-0a9a-486f-8d6d-86fc85c6ceb0",
+                            ClientId = "22a759bf-3ec9-457f-936f-92ac29a9a4c0",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Consectetur libero pariatur aut sed. Explicabo porro ut qui quis qui recusandae. Tenetur hic in qui quis. Asperiores sunt ducimus quo. Ducimus quae est tempora sed.",
-                            Time = new DateTime(2025, 6, 13, 14, 10, 46, 477, DateTimeKind.Unspecified).AddTicks(4921)
+                            Note = "Quae expedita repudiandae a. Et aut dolor ut vitae dolor atque incidunt. Dolor omnis quam voluptatem minus nihil ut praesentium. Odit cumque iusto aut vitae unde possimus ad consequatur est.",
+                            Time = new DateTime(2025, 3, 26, 5, 33, 42, 326, DateTimeKind.Unspecified).AddTicks(493)
                         },
                         new
                         {
                             Id = 6,
-                            ClientId = "a2d15849-5376-4e4b-af5d-accb1ffa3935",
+                            ClientId = "22a759bf-3ec9-457f-936f-92ac29a9a4c0",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Occaecati minus voluptatum non velit qui earum.",
-                            Time = new DateTime(2025, 4, 24, 0, 2, 9, 39, DateTimeKind.Unspecified).AddTicks(4056)
+                            Note = "Qui cumque enim.\nMaiores totam iste nobis natus officia.\nIn reprehenderit dolores veniam.\nEst eligendi voluptatem nisi cupiditate quam nobis qui illo.",
+                            Time = new DateTime(2025, 5, 25, 9, 43, 26, 849, DateTimeKind.Unspecified).AddTicks(5807)
                         },
                         new
                         {
                             Id = 7,
-                            ClientId = "d61ac6e5-72e0-4e5a-9946-10c694abeef6",
+                            ClientId = "662ee75a-277e-45e9-b435-52b5f4dfd9c6",
+                            Coach = 0,
                             Location = 0,
-                            Note = "eos",
-                            Time = new DateTime(2025, 1, 6, 23, 47, 20, 969, DateTimeKind.Unspecified).AddTicks(6472)
+                            Note = "consequatur",
+                            Time = new DateTime(2025, 6, 26, 10, 41, 47, 747, DateTimeKind.Unspecified).AddTicks(1068)
                         },
                         new
                         {
                             Id = 8,
-                            ClientId = "8356b7ff-89f7-4835-b16a-7eca2102bd5b",
+                            ClientId = "0f3d69cb-418e-4810-b56b-152226572cf3",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Veniam ut facilis consequatur soluta.",
-                            Time = new DateTime(2025, 2, 22, 14, 5, 43, 187, DateTimeKind.Unspecified).AddTicks(9180)
+                            Note = "Nostrum non iusto accusamus libero sunt vel sit.\nEx voluptatem rerum voluptatem.\nAutem eum modi ipsa reprehenderit sit deleniti et.\nFacere ducimus maxime eum quo.\nAtque vel reprehenderit dolores distinctio quasi et harum.\nReiciendis aut quo quibusdam fuga ea modi dolore non.",
+                            Time = new DateTime(2025, 3, 12, 4, 37, 27, 410, DateTimeKind.Unspecified).AddTicks(8201)
                         },
                         new
                         {
                             Id = 9,
-                            ClientId = "8356b7ff-89f7-4835-b16a-7eca2102bd5b",
+                            ClientId = "cf11da01-c496-4ecf-bc14-4797ef095626",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Expedita repellendus odit.\nQuas unde est quo cumque.\nUt odit dolores rem omnis illo.",
-                            Time = new DateTime(2025, 6, 3, 19, 18, 18, 215, DateTimeKind.Unspecified).AddTicks(5637)
+                            Note = "Consequuntur dolores est nemo eaque nemo.",
+                            Time = new DateTime(2025, 1, 14, 2, 51, 2, 211, DateTimeKind.Unspecified).AddTicks(7190)
                         },
                         new
                         {
                             Id = 10,
-                            ClientId = "f8294be2-341c-4a94-97c6-6e9f2a189070",
+                            ClientId = "662ee75a-277e-45e9-b435-52b5f4dfd9c6",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Ullam earum minus. Mollitia doloremque ea maiores. Expedita qui aliquid illum eum fugit.",
-                            Time = new DateTime(2025, 3, 3, 20, 11, 38, 254, DateTimeKind.Unspecified).AddTicks(6213)
+                            Note = "occaecati",
+                            Time = new DateTime(2025, 6, 25, 13, 22, 10, 69, DateTimeKind.Unspecified).AddTicks(466)
                         },
                         new
                         {
                             Id = 11,
-                            ClientId = "f8294be2-341c-4a94-97c6-6e9f2a189070",
+                            ClientId = "819ef490-7486-4d9b-9e1d-2b4b6f81cb5c",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Quia consequatur rerum dolores eligendi voluptas temporibus est officiis.",
-                            Time = new DateTime(2025, 1, 12, 7, 12, 51, 681, DateTimeKind.Unspecified).AddTicks(421)
+                            Note = "Ut dolorem optio dolore est nihil facilis in explicabo.\nCommodi et sit assumenda temporibus tempora.\nEt quos dignissimos et veniam.\nHarum aut et quisquam adipisci modi.\nEt deserunt facere vitae impedit.",
+                            Time = new DateTime(2025, 10, 9, 12, 27, 0, 790, DateTimeKind.Unspecified).AddTicks(6489)
                         },
                         new
                         {
                             Id = 12,
-                            ClientId = "8356b7ff-89f7-4835-b16a-7eca2102bd5b",
+                            ClientId = "7030506a-b1d8-45c9-a581-3950f3f74bbe",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Ducimus perspiciatis dolores.\nQuo ut odio cumque amet vel.\nVoluptas repudiandae eveniet quis odio dignissimos facilis dolorem fugiat.\nNostrum earum vitae.\nBlanditiis cum expedita maiores ducimus eos nam libero.",
-                            Time = new DateTime(2025, 4, 3, 1, 6, 59, 344, DateTimeKind.Unspecified).AddTicks(4658)
+                            Note = "officiis",
+                            Time = new DateTime(2025, 9, 25, 0, 34, 53, 927, DateTimeKind.Unspecified).AddTicks(4212)
                         },
                         new
                         {
                             Id = 13,
-                            ClientId = "a2d15849-5376-4e4b-af5d-accb1ffa3935",
+                            ClientId = "22a759bf-3ec9-457f-936f-92ac29a9a4c0",
+                            Coach = 0,
                             Location = 0,
-                            Note = "At animi id officiis nesciunt rerum non soluta.",
-                            Time = new DateTime(2025, 6, 4, 2, 2, 30, 798, DateTimeKind.Unspecified).AddTicks(918)
+                            Note = "Ab et occaecati. Ipsum assumenda aut. Et doloribus ut aut labore quo asperiores et. Dolorem et doloribus soluta et eum omnis vel eaque eum. Architecto quod et enim voluptatem excepturi sint vel consequatur vitae. Architecto sed natus natus totam.",
+                            Time = new DateTime(2025, 6, 29, 3, 4, 59, 661, DateTimeKind.Unspecified).AddTicks(8006)
                         },
                         new
                         {
                             Id = 14,
-                            ClientId = "2618f4d1-f4a8-4584-901c-57b233900da2",
+                            ClientId = "24d787eb-988d-48fa-997a-d051ceb30443",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Sed et labore maxime.",
-                            Time = new DateTime(2025, 1, 27, 2, 42, 39, 692, DateTimeKind.Unspecified).AddTicks(8840)
+                            Note = "Quam velit quia id et qui distinctio repellendus ut.\nAliquid animi qui cupiditate quis.\nAssumenda sunt nostrum qui vitae eaque aperiam perferendis saepe.\nVoluptatem dolor non possimus aliquam.\nNon dolorem velit minus culpa omnis modi.",
+                            Time = new DateTime(2025, 11, 18, 15, 46, 42, 45, DateTimeKind.Unspecified).AddTicks(5065)
                         },
                         new
                         {
                             Id = 15,
-                            ClientId = "9844b374-0a9a-486f-8d6d-86fc85c6ceb0",
+                            ClientId = "f9be045b-3249-4c04-b9f3-5dd92a44567b",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Cupiditate explicabo nesciunt sint quam nostrum laboriosam autem suscipit repellendus. Rerum quia rerum. Libero animi aliquid quibusdam. Animi dolorem error eius adipisci molestiae dolorem deleniti. Molestias eaque corrupti et recusandae earum voluptas deserunt minima.",
-                            Time = new DateTime(2025, 4, 6, 15, 58, 38, 318, DateTimeKind.Unspecified).AddTicks(4020)
+                            Note = "Quos deserunt quidem.",
+                            Time = new DateTime(2025, 12, 24, 13, 27, 35, 116, DateTimeKind.Unspecified).AddTicks(7303)
                         },
                         new
                         {
                             Id = 16,
-                            ClientId = "8356b7ff-89f7-4835-b16a-7eca2102bd5b",
+                            ClientId = "662ee75a-277e-45e9-b435-52b5f4dfd9c6",
+                            Coach = 0,
                             Location = 0,
-                            Note = "omnis",
-                            Time = new DateTime(2025, 3, 20, 18, 41, 11, 605, DateTimeKind.Unspecified).AddTicks(2365)
+                            Note = "Officia voluptate maiores.\nSaepe ullam fuga vero et quae atque.\nFacilis consequatur incidunt voluptas.\nIpsam error voluptatem mollitia commodi et.",
+                            Time = new DateTime(2025, 3, 28, 20, 41, 25, 846, DateTimeKind.Unspecified).AddTicks(6144)
                         },
                         new
                         {
                             Id = 17,
-                            ClientId = "2618f4d1-f4a8-4584-901c-57b233900da2",
+                            ClientId = "cf11da01-c496-4ecf-bc14-4797ef095626",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Maiores vero qui.\nQui consequatur eos qui qui cupiditate quia alias.\nVoluptas est est molestiae alias ut asperiores.\nRepellat tenetur explicabo provident aliquid ea quia.",
-                            Time = new DateTime(2025, 3, 28, 22, 47, 17, 551, DateTimeKind.Unspecified).AddTicks(1237)
+                            Note = "Totam molestiae deserunt earum voluptates atque atque sunt. Possimus sit iste necessitatibus accusamus aut nesciunt. Dolor necessitatibus officiis in adipisci velit aut esse alias est.",
+                            Time = new DateTime(2025, 10, 17, 22, 1, 38, 648, DateTimeKind.Unspecified).AddTicks(1387)
                         },
                         new
                         {
                             Id = 18,
-                            ClientId = "8356b7ff-89f7-4835-b16a-7eca2102bd5b",
+                            ClientId = "22a759bf-3ec9-457f-936f-92ac29a9a4c0",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Magnam placeat est repudiandae quaerat id ut minima omnis occaecati. Et non consequatur qui ipsa perferendis. Enim commodi repudiandae quisquam ab. Est sint autem est dicta.",
-                            Time = new DateTime(2025, 4, 21, 18, 44, 45, 87, DateTimeKind.Unspecified).AddTicks(6746)
+                            Note = "Omnis corporis iste possimus quae molestiae.",
+                            Time = new DateTime(2025, 2, 7, 7, 21, 0, 682, DateTimeKind.Unspecified).AddTicks(8076)
                         },
                         new
                         {
                             Id = 19,
-                            ClientId = "f8294be2-341c-4a94-97c6-6e9f2a189070",
+                            ClientId = "f4db7fc8-ca9f-429e-a87a-f782be825b63",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Ut sint consequatur unde ut.\nQuasi facere eligendi et id saepe.\nQuae repudiandae animi et eos numquam dolorem voluptas.\nAliquam qui harum qui aliquid placeat eligendi expedita.",
-                            Time = new DateTime(2025, 5, 21, 23, 44, 47, 614, DateTimeKind.Unspecified).AddTicks(6450)
+                            Note = "Quod quisquam eos veniam.",
+                            Time = new DateTime(2025, 1, 10, 6, 59, 39, 524, DateTimeKind.Unspecified).AddTicks(9803)
                         },
                         new
                         {
                             Id = 20,
-                            ClientId = "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988",
+                            ClientId = "f4db7fc8-ca9f-429e-a87a-f782be825b63",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Commodi quaerat enim repellat et quaerat.\nSequi hic neque.\nIpsa ad rem porro explicabo pariatur adipisci consequatur.",
-                            Time = new DateTime(2025, 1, 2, 13, 44, 19, 315, DateTimeKind.Unspecified).AddTicks(3556)
+                            Note = "qui",
+                            Time = new DateTime(2025, 5, 23, 15, 0, 39, 523, DateTimeKind.Unspecified).AddTicks(5410)
                         },
                         new
                         {
                             Id = 21,
-                            ClientId = "9844b374-0a9a-486f-8d6d-86fc85c6ceb0",
+                            ClientId = "662ee75a-277e-45e9-b435-52b5f4dfd9c6",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Non sed ad odio deserunt voluptatum ut.\nEum aut veniam nemo non ipsam delectus fugiat cupiditate unde.",
-                            Time = new DateTime(2025, 3, 4, 20, 14, 6, 883, DateTimeKind.Unspecified).AddTicks(4956)
+                            Note = "Dolorem beatae quos distinctio dolorem et necessitatibus quas cumque.",
+                            Time = new DateTime(2025, 7, 3, 6, 39, 36, 875, DateTimeKind.Unspecified).AddTicks(9816)
                         },
                         new
                         {
                             Id = 22,
-                            ClientId = "9844b374-0a9a-486f-8d6d-86fc85c6ceb0",
+                            ClientId = "f4db7fc8-ca9f-429e-a87a-f782be825b63",
+                            Coach = 0,
                             Location = 0,
-                            Note = "aut",
-                            Time = new DateTime(2025, 2, 25, 8, 28, 49, 583, DateTimeKind.Unspecified).AddTicks(8992)
+                            Note = "Dolores nihil quia consectetur magnam et deleniti pariatur vel esse.\nRecusandae voluptate sint cum tempora consequatur aperiam ratione placeat eos.\nUt eaque voluptatibus ut voluptas ducimus voluptatem id porro.\nHic eos nam cumque perferendis libero veritatis.",
+                            Time = new DateTime(2025, 7, 28, 16, 47, 57, 524, DateTimeKind.Unspecified).AddTicks(2622)
                         },
                         new
                         {
                             Id = 23,
-                            ClientId = "2618f4d1-f4a8-4584-901c-57b233900da2",
+                            ClientId = "0f3d69cb-418e-4810-b56b-152226572cf3",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Labore repellendus eius sit et cupiditate.",
-                            Time = new DateTime(2025, 2, 16, 2, 11, 53, 451, DateTimeKind.Unspecified).AddTicks(6484)
+                            Note = "Odio voluptas dolore a.\nIpsum itaque aut ipsa.\nNon ut sunt.\nVoluptates dolor consequuntur omnis sint natus.\nNon fugiat aliquid omnis et officia ipsum at et.\nQui quam sunt eos voluptates nihil dolore est.",
+                            Time = new DateTime(2025, 11, 4, 18, 32, 19, 873, DateTimeKind.Unspecified).AddTicks(8497)
                         },
                         new
                         {
                             Id = 24,
-                            ClientId = "7bb53c7e-feae-47c3-9bf8-d47e4b66055b",
+                            ClientId = "f9be045b-3249-4c04-b9f3-5dd92a44567b",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Error sunt id iure. Autem aut est. A nihil eos voluptatem quibusdam voluptatem ea fugit quis dolorem. Ratione quibusdam rerum.",
-                            Time = new DateTime(2025, 3, 30, 11, 36, 59, 627, DateTimeKind.Unspecified).AddTicks(8774)
+                            Note = "Perferendis eaque cumque culpa suscipit accusantium.",
+                            Time = new DateTime(2025, 1, 22, 22, 28, 59, 8, DateTimeKind.Unspecified).AddTicks(4384)
                         },
                         new
                         {
                             Id = 25,
-                            ClientId = "d61ac6e5-72e0-4e5a-9946-10c694abeef6",
+                            ClientId = "819ef490-7486-4d9b-9e1d-2b4b6f81cb5c",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Nihil cum sit rerum.",
-                            Time = new DateTime(2025, 3, 8, 23, 42, 16, 784, DateTimeKind.Unspecified).AddTicks(7634)
+                            Note = "Vel alias nesciunt maiores dolores vel explicabo sit consectetur. Quia ab voluptatem at voluptas vel dolores aut. Magni est quis quaerat doloremque voluptatem non enim voluptatem ex. Nobis accusamus voluptatem id suscipit consequatur ut sint.",
+                            Time = new DateTime(2025, 1, 14, 21, 10, 0, 443, DateTimeKind.Unspecified).AddTicks(6607)
                         },
                         new
                         {
                             Id = 26,
-                            ClientId = "1e0ff4af-05e6-4dc4-ad25-edec7652ff45",
+                            ClientId = "819ef490-7486-4d9b-9e1d-2b4b6f81cb5c",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Unde qui nemo autem provident atque. Aut voluptate ab omnis quaerat exercitationem dicta. Ad commodi maiores eius est in nostrum autem maiores et. Impedit repellendus autem.",
-                            Time = new DateTime(2025, 4, 19, 17, 8, 1, 513, DateTimeKind.Unspecified).AddTicks(271)
+                            Note = "ut",
+                            Time = new DateTime(2025, 3, 29, 7, 56, 40, 953, DateTimeKind.Unspecified).AddTicks(5323)
                         },
                         new
                         {
                             Id = 27,
-                            ClientId = "2618f4d1-f4a8-4584-901c-57b233900da2",
+                            ClientId = "819ef490-7486-4d9b-9e1d-2b4b6f81cb5c",
+                            Coach = 0,
                             Location = 0,
-                            Note = "explicabo",
-                            Time = new DateTime(2025, 4, 27, 18, 54, 57, 919, DateTimeKind.Unspecified).AddTicks(2434)
+                            Note = "Illo architecto sunt in voluptas.",
+                            Time = new DateTime(2025, 6, 28, 1, 20, 44, 244, DateTimeKind.Unspecified).AddTicks(6701)
                         },
                         new
                         {
                             Id = 28,
-                            ClientId = "2618f4d1-f4a8-4584-901c-57b233900da2",
+                            ClientId = "cf11da01-c496-4ecf-bc14-4797ef095626",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Praesentium molestias aut praesentium consequatur quibusdam natus ullam odio.\nAsperiores quia labore quae eius.",
-                            Time = new DateTime(2025, 6, 2, 19, 29, 35, 637, DateTimeKind.Unspecified).AddTicks(2515)
+                            Note = "Excepturi a iusto autem dolorum sint veniam mollitia ut.",
+                            Time = new DateTime(2025, 10, 29, 16, 46, 14, 482, DateTimeKind.Unspecified).AddTicks(5543)
                         },
                         new
                         {
                             Id = 29,
-                            ClientId = "8356b7ff-89f7-4835-b16a-7eca2102bd5b",
+                            ClientId = "7030506a-b1d8-45c9-a581-3950f3f74bbe",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Dicta incidunt aliquid ratione sit saepe ut. Assumenda nihil minus soluta natus amet sit. Aut laboriosam occaecati qui. Nobis eius ut dicta debitis laborum non illo.",
-                            Time = new DateTime(2025, 5, 14, 5, 24, 13, 621, DateTimeKind.Unspecified).AddTicks(9668)
+                            Note = "Omnis exercitationem voluptas maiores enim perferendis assumenda id harum ratione. Magnam enim molestiae. Sed vel eligendi. A facilis sit veniam. Nobis nobis ullam exercitationem expedita et ut.",
+                            Time = new DateTime(2025, 5, 29, 2, 39, 29, 77, DateTimeKind.Unspecified).AddTicks(5525)
                         },
                         new
                         {
                             Id = 30,
-                            ClientId = "7bb53c7e-feae-47c3-9bf8-d47e4b66055b",
+                            ClientId = "24d787eb-988d-48fa-997a-d051ceb30443",
+                            Coach = 0,
                             Location = 0,
-                            Note = "Fuga vel perferendis. Voluptatem quo quos perspiciatis. Natus eos recusandae. Neque et qui voluptatem earum quisquam suscipit voluptates. Doloribus et est ipsum aut quia ut. Quisquam velit architecto voluptas nam modi quod commodi nulla.",
-                            Time = new DateTime(2025, 2, 5, 7, 55, 26, 861, DateTimeKind.Unspecified).AddTicks(1445)
+                            Note = "Enim ut tempora.\nOmnis voluptatem nihil voluptas rerum ipsa atque enim veniam.\nEt animi et amet assumenda.\nConsequatur ut nemo sapiente ullam inventore molestiae.\nEt sint est omnis placeat.",
+                            Time = new DateTime(2025, 7, 11, 3, 7, 49, 287, DateTimeKind.Unspecified).AddTicks(3725)
                         });
                 });
 
-            modelBuilder.Entity("ClientPortal.Server.Entities.User", b =>
+            modelBuilder.Entity("ClientPortal.Server.Entities.PortalUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -310,17 +343,14 @@ namespace AlchemyCoaching.Server.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -338,6 +368,9 @@ namespace AlchemyCoaching.Server.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -364,183 +397,201 @@ namespace AlchemyCoaching.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "41ef70d3-b947-4099-b772-b77df022cc23",
+                            Id = "cc74c0ab-64de-4626-b9df-a8031a24cb41",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "31bf2d74-5667-480b-89d6-ddda4d390455",
-                            Email = "Jacquelyn.Cormier18@email.com",
+                            ConcurrencyStamp = "aa28abe9-eb97-423b-b30f-e7656ea9853b",
+                            Email = "Bobbie66@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Jacquelyn",
-                            LastName = "Cormier",
                             LockoutEnabled = false,
-                            NormalizedEmail = "jacquelyn.cormier18@email.com",
-                            NormalizedUserName = "jacquelyn.cormier18@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDN4LQVIBLgPAu22eoblaR8OvgIy5eJOw+ucT6MowgTrgIc6YzCAPfIvFAFWQq0qdw==",
+                            Name = "Bobbie",
+                            NormalizedEmail = "bobbie66@email.com",
+                            NormalizedUserName = "bobbie66@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL6J4gFyKOV43XUjGjYPb/UpllRZxV2Hy0sipPHr17G1lJkXtBiBsx5WAMce++brbA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "050706dc-8efe-4b44-b7b6-8401efb0d3ad",
+                            Role = 0,
+                            SecurityStamp = "a94005dd-d071-4457-ac0a-165135b26b74",
                             TwoFactorEnabled = false,
-                            UserName = "jacquelyn.cormier18@email.com"
+                            UserName = "bobbie66@email.com"
                         },
                         new
                         {
-                            Id = "7bb53c7e-feae-47c3-9bf8-d47e4b66055b",
+                            Id = "24d787eb-988d-48fa-997a-d051ceb30443",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "759a5282-1d52-44ac-bad1-a30bdf3839c7",
-                            Email = "Herbert_Luettgen9@email.com",
+                            ConcurrencyStamp = "28886f9d-76c7-48d7-9913-a5bb0cbae805",
+                            Email = "Jake.Tillman@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Herbert",
-                            LastName = "Luettgen",
                             LockoutEnabled = false,
-                            NormalizedEmail = "herbert_luettgen9@email.com",
-                            NormalizedUserName = "herbert_luettgen9@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAENUqiP38AGTJVrzLh+GXAgQ5mXQnJfK7enPavBlNFpkq5fjd93sUtnU2JaePAviiAQ==",
+                            Name = "Jake",
+                            NormalizedEmail = "jake.tillman@email.com",
+                            NormalizedUserName = "jake.tillman@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDxhS2xIwv2spfHYSiNz4d0rQhKOfj7gkQA5XvK/0i6opPiJCtBvhM7WBSPXlr4f4Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "33852f04-0f51-4bf8-9b94-42cabbce8c60",
+                            Role = 0,
+                            SecurityStamp = "8a8bb477-4ee8-4089-b9b5-a6dd725fc12f",
                             TwoFactorEnabled = false,
-                            UserName = "herbert_luettgen9@email.com"
+                            UserName = "jake.tillman@email.com"
                         },
                         new
                         {
-                            Id = "a2d15849-5376-4e4b-af5d-accb1ffa3935",
+                            Id = "7030506a-b1d8-45c9-a581-3950f3f74bbe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7e7c26c2-c51c-42d8-ac40-b8f616b6080e",
-                            Email = "Hector.Jenkins8@email.com",
+                            ConcurrencyStamp = "7c2f761d-d0f9-45d2-a9a7-dc3dee799401",
+                            Email = "Edwin.Zboncak@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Hector",
-                            LastName = "Jenkins",
                             LockoutEnabled = false,
-                            NormalizedEmail = "hector.jenkins8@email.com",
-                            NormalizedUserName = "hector.jenkins8@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHgL/njMypSb2Jsa6ihRNosrDw2wP4IeCeHVNyE0UyoOvwqO8j2cVMgMHy2bZ5AOVA==",
+                            Name = "Edwin",
+                            NormalizedEmail = "edwin.zboncak@email.com",
+                            NormalizedUserName = "edwin.zboncak@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB/HAREkc+zv0jNINJWoEY8nNwTlyO3Wsz3no2h5yVSrlSD3cPHC0CnUOW3tJyyzyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d472ab5d-f198-45d8-98ea-c6ebf168c797",
+                            Role = 0,
+                            SecurityStamp = "bca2fede-6eb6-430e-b5da-b9b9efe96660",
                             TwoFactorEnabled = false,
-                            UserName = "hector.jenkins8@email.com"
+                            UserName = "edwin.zboncak@email.com"
                         },
                         new
                         {
-                            Id = "f8294be2-341c-4a94-97c6-6e9f2a189070",
+                            Id = "819ef490-7486-4d9b-9e1d-2b4b6f81cb5c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "804e72ec-bfd2-4f7c-93b6-c0e75a4208cf",
-                            Email = "Kelli.Schumm67@email.com",
+                            ConcurrencyStamp = "ef356099-d159-43cb-bf2c-164706af4039",
+                            Email = "Tracy64@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Kelli",
-                            LastName = "Schumm",
                             LockoutEnabled = false,
-                            NormalizedEmail = "kelli.schumm67@email.com",
-                            NormalizedUserName = "kelli.schumm67@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDdYtKRXPjhuIKKPrYGLDU7CU0X8R0nCRfwbTkrqG1bYEAvGf0figSNVpSLbgiS2CQ==",
+                            Name = "Tracy",
+                            NormalizedEmail = "tracy64@email.com",
+                            NormalizedUserName = "tracy64@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO5al1vQ0wSw+vdOHt3YLMvRGbptRCcmpakNvkq+G6iIATGOEvu+1Ag8MblBtgkn+Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bbf7425d-c9b9-45c5-a242-90af889b6645",
+                            Role = 0,
+                            SecurityStamp = "b16da18b-c4b3-4f2d-b2cc-41d5baa35fa4",
                             TwoFactorEnabled = false,
-                            UserName = "kelli.schumm67@email.com"
+                            UserName = "tracy64@email.com"
                         },
                         new
                         {
-                            Id = "1e0ff4af-05e6-4dc4-ad25-edec7652ff45",
+                            Id = "662ee75a-277e-45e9-b435-52b5f4dfd9c6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "29c2fa94-2db2-45fb-805e-18192cc21d22",
-                            Email = "Lula.Orn57@email.com",
+                            ConcurrencyStamp = "336ac572-c72c-46b8-a213-19753cc944ad",
+                            Email = "Courtney6@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Lula",
-                            LastName = "Orn",
                             LockoutEnabled = false,
-                            NormalizedEmail = "lula.orn57@email.com",
-                            NormalizedUserName = "lula.orn57@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEN5yfCNehYd6NrrE2nyCJZSyal7qxJS4897qUvs8D8HWi/2mAZ/DZrfMyYuLclU6lw==",
+                            Name = "Courtney",
+                            NormalizedEmail = "courtney6@email.com",
+                            NormalizedUserName = "courtney6@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGwfFCaKZd2IWH4TjI4jbDGExX1ZVEdCqX1BpWjiczgOfr3QUcvn2Ofdpvp2Gs/ijQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "670675a8-4060-4981-bc19-3918258e3b7f",
+                            Role = 0,
+                            SecurityStamp = "dcecf067-cc1f-416e-900a-cdc33aeb7ba2",
                             TwoFactorEnabled = false,
-                            UserName = "lula.orn57@email.com"
+                            UserName = "courtney6@email.com"
                         },
                         new
                         {
-                            Id = "d61ac6e5-72e0-4e5a-9946-10c694abeef6",
+                            Id = "f9be045b-3249-4c04-b9f3-5dd92a44567b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1a07b1bc-9bb5-4eaf-9b90-06e61ed740f7",
-                            Email = "Paulette.Heaney@email.com",
+                            ConcurrencyStamp = "af5b2b11-a3f5-4721-8099-10a0a1c3efb5",
+                            Email = "Gabriel56@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Paulette",
-                            LastName = "Heaney",
                             LockoutEnabled = false,
-                            NormalizedEmail = "paulette.heaney@email.com",
-                            NormalizedUserName = "paulette.heaney@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPENMUUfZatwDPzB+ecInS9Dcv2cqHhiraOoh9YhDe6oK5L41dWj6daJGtEC5Wfs1g==",
+                            Name = "Gabriel",
+                            NormalizedEmail = "gabriel56@email.com",
+                            NormalizedUserName = "gabriel56@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOb7MqsB49xlq1OwDMvbZlgSvGnHJR6010FwGmOSI1xLM7Fsm/h7tYZP1gmJxE0fcQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "735f10d4-5d2d-4ed5-a2ed-5366bc0dc217",
+                            Role = 0,
+                            SecurityStamp = "9587989f-1166-4aa1-8980-e90423233c98",
                             TwoFactorEnabled = false,
-                            UserName = "paulette.heaney@email.com"
+                            UserName = "gabriel56@email.com"
                         },
                         new
                         {
-                            Id = "2618f4d1-f4a8-4584-901c-57b233900da2",
+                            Id = "0f3d69cb-418e-4810-b56b-152226572cf3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "acb2feb5-9758-4451-88ee-3c3929d4017c",
-                            Email = "Katie_Terry@email.com",
+                            ConcurrencyStamp = "4bc90bf9-4961-4333-85bd-b8ee9c00dc70",
+                            Email = "Rufus54@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Katie",
-                            LastName = "Terry",
                             LockoutEnabled = false,
-                            NormalizedEmail = "katie_terry@email.com",
-                            NormalizedUserName = "katie_terry@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIZJG2ErxEyoVFxGwxXQ3/BwUbA3Owak0E6Q8xL75Ty147jy/gskKNmFnsZD4tMhVA==",
+                            Name = "Rufus",
+                            NormalizedEmail = "rufus54@email.com",
+                            NormalizedUserName = "rufus54@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAED7V13D1pOPpvHX7oYAgqo3q9XASSCI6Nh0/9ZQPFho3AXSy+gwA6TKfN3zvW4iXhQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6c9ab80f-db3f-4d21-a952-c4cdb0e47907",
+                            Role = 0,
+                            SecurityStamp = "da1dcc35-c100-4cbf-a02d-d773bf16390d",
                             TwoFactorEnabled = false,
-                            UserName = "katie_terry@email.com"
+                            UserName = "rufus54@email.com"
                         },
                         new
                         {
-                            Id = "9844b374-0a9a-486f-8d6d-86fc85c6ceb0",
+                            Id = "f4db7fc8-ca9f-429e-a87a-f782be825b63",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b9dcfc1a-d447-4048-ad0b-d130d013b9a5",
-                            Email = "Agnes_Wolf@email.com",
+                            ConcurrencyStamp = "2cea5f10-149c-4a3e-bf22-a1b7d091c387",
+                            Email = "Wayne11@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Agnes",
-                            LastName = "Wolf",
                             LockoutEnabled = false,
-                            NormalizedEmail = "agnes_wolf@email.com",
-                            NormalizedUserName = "agnes_wolf@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA1xhosSSEA9dPj2zziNqmoFHWCzwK17mOysS4vOEW3bP+E4E/1MPJ/oLjZbUr5KGg==",
+                            Name = "Wayne",
+                            NormalizedEmail = "wayne11@email.com",
+                            NormalizedUserName = "wayne11@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL5dwWZilhgF2JO8Q4FJ8bq5cklzRmMjt8CqAYFnKXSvNMmUm02PVS0tG+M7mGOzMw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "64e2c042-f0c0-42eb-9f57-2a4a7bdc0343",
+                            Role = 0,
+                            SecurityStamp = "41944c9a-af50-4968-9e76-2ba95efc6abd",
                             TwoFactorEnabled = false,
-                            UserName = "agnes_wolf@email.com"
+                            UserName = "wayne11@email.com"
                         },
                         new
                         {
-                            Id = "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988",
+                            Id = "22a759bf-3ec9-457f-936f-92ac29a9a4c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c4f60b9d-1295-4cd4-90e4-c64591946504",
-                            Email = "Gregg69@email.com",
+                            ConcurrencyStamp = "d2ac754f-6af4-406a-87f9-dfa00756cdbf",
+                            Email = "Joanna15@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Gregg",
-                            LastName = "Larson",
                             LockoutEnabled = false,
-                            NormalizedEmail = "gregg69@email.com",
-                            NormalizedUserName = "gregg69@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAELWZywuRjh5KRlyJq9ShgzkBrsg/U0M0bM4Obr/NhJtZhIZEZCaDGWD0LGs34xrLXg==",
+                            Name = "Joanna",
+                            NormalizedEmail = "joanna15@email.com",
+                            NormalizedUserName = "joanna15@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGz/Y+kEZORn3Bx6bFimiKuE+7thQZ5c+82GNSIFSAYKyPUCO7/Wq7Flr2nC4BHw9g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fe0f98df-895e-4a2e-8b97-1abfb1ea2ca3",
+                            Role = 0,
+                            SecurityStamp = "d01510c5-72d3-42df-89c6-91b80cc3b3dc",
                             TwoFactorEnabled = false,
-                            UserName = "gregg69@email.com"
+                            UserName = "joanna15@email.com"
                         },
                         new
                         {
-                            Id = "8356b7ff-89f7-4835-b16a-7eca2102bd5b",
+                            Id = "cf11da01-c496-4ecf-bc14-4797ef095626",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "755f8ed0-0de5-4edf-a184-64ded9cfdfe8",
-                            Email = "Eloise35@email.com",
+                            ConcurrencyStamp = "0ffda498-3b3a-490e-857a-f7389e43883f",
+                            Email = "Margie99@email.com",
                             EmailConfirmed = false,
-                            FirstName = "Eloise",
-                            LastName = "Olson",
                             LockoutEnabled = false,
-                            NormalizedEmail = "eloise35@email.com",
-                            NormalizedUserName = "eloise35@email.com",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOe+J423dW7wCeSpVCy7vnFnrPLeqLsYYEIyqYv6/cu7HEJxfgVmT1nkgWO9NyDNsQ==",
+                            Name = "Margie",
+                            NormalizedEmail = "margie99@email.com",
+                            NormalizedUserName = "margie99@email.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKSf9oW8eZQl774G5pxzydpbBDp6xhyqTkLFnRB9wF26dBoH9cEumsJKseIvCQQE4A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "56df5e7b-2ff0-441f-8039-0b4298813ee9",
+                            Role = 0,
+                            SecurityStamp = "76d084f6-0425-411d-ac6a-f96c7ede0fad",
                             TwoFactorEnabled = false,
-                            UserName = "eloise35@email.com"
+                            UserName = "margie99@email.com"
+                        },
+                        new
+                        {
+                            Id = "00000000-0000-0000-0000-000000000000",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "4aa6a278-afe2-4472-a99c-f8825b6abab7",
+                            Email = "alisonjoyforster@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            Name = "Alison",
+                            NormalizedEmail = "alisonjoyforster@gmail.com",
+                            NormalizedUserName = "alisonjoyforster@gmail.com",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFDSzyGxN8Wgujb4tqYb4NdeE5dQR23ysQzoD4zcOTWrS32pWaevqZELA4IuY5K05g==",
+                            PhoneNumberConfirmed = false,
+                            Role = 0,
+                            SecurityStamp = "f755f7c6-2b36-4af5-8f1b-31bf78ea398a",
+                            TwoFactorEnabled = false,
+                            UserName = "alisonjoyforster@gmail.com"
                         });
                 });
 
@@ -573,13 +624,19 @@ namespace AlchemyCoaching.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "761481ad-b971-49b9-9389-1f0599751dd6",
+                            Id = "512127ad-d7ec-44f8-afc4-6fc3abf7ba5a",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "53c128ff-e28d-4f22-908c-12abed534cc5",
+                            Id = "4c191e43-2919-4428-a98c-c59ddf08866a",
+                            Name = "Coach",
+                            NormalizedName = "COACH"
+                        },
+                        new
+                        {
+                            Id = "d01a4ba0-f4be-491f-b542-07ab6e65940b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -702,7 +759,7 @@ namespace AlchemyCoaching.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("ClientPortal.Server.Entities.User", null)
+                    b.HasOne("ClientPortal.Server.Entities.PortalUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -711,7 +768,7 @@ namespace AlchemyCoaching.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("ClientPortal.Server.Entities.User", null)
+                    b.HasOne("ClientPortal.Server.Entities.PortalUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -726,7 +783,7 @@ namespace AlchemyCoaching.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ClientPortal.Server.Entities.User", null)
+                    b.HasOne("ClientPortal.Server.Entities.PortalUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -735,7 +792,7 @@ namespace AlchemyCoaching.Server.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("ClientPortal.Server.Entities.User", null)
+                    b.HasOne("ClientPortal.Server.Entities.PortalUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

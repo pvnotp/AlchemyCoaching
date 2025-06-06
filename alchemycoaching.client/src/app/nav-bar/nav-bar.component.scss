@@ -9,11 +9,6 @@
   font-weight: 50;
 }
 
-//.dropdown-menu {
-//    background-color: $medium;
-//    color: $dark;
-//}
-
 .top-nav {
   display: flex;
   flex-direction: row;
@@ -42,14 +37,6 @@
   padding: 0;
   overflow: hidden;
 }
-
-//.menu {
-//  display: flex;
-//  flex-direction: row;
-//  list-style-type: none;
-//  margin: 0;
-//  padding: 0;
-//}
 
 .menu > li {
   margin: 0 1rem;
@@ -118,6 +105,10 @@ button:hover {
 
 .bottom-button:hover {
     color: $dark;
+}
+
+.bottom-nav a{
+    color: white;
 }
 
 .bottom-nav a:hover{
