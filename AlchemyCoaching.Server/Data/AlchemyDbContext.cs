@@ -6,33 +6,31 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlchemyCoaching.Server.Data
 {
-    public class DemoDbContext(DbContextOptions options) : IdentityDbContext<PortalUser, IdentityRole, string>(options)
+    public class AlchemyDbContext(DbContextOptions options) : IdentityDbContext<IdentityUser, IdentityRole, string>(options)
     {
-        public DbSet<PortalUser> PortalUsers { get; set; }
         public DbSet<Appointment> Appointment { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            var passwordHasher = new PasswordHasher<PortalUser>();
-            var userFaker = new Faker<PortalUser>()
+            var passwordHasher = new PasswordHasher<IdentityUser>();
+            var userFaker = new Faker<IdentityUser>()
                 .RuleFor(u => u.Id, f => Guid.NewGuid().ToString())
-                .RuleFor(u => u.Name, f => f.Person.FirstName)
-                .RuleFor(u => u.Email, (f, u)=> f.Internet.Email(u.Name, f.Person.LastName, "email.com"))
+                .RuleFor(u => u.Email, f => f.Internet.Email(f.Person.FirstName, f.Person.LastName, "email.com"))
                 .RuleFor(u => u.NormalizedEmail, (f, u) => u.Email?.ToLower())
-                .RuleFor(u => u.UserName, (f, u) => u.NormalizedEmail)
-                .RuleFor(u => u.NormalizedUserName, (f, u) => u.NormalizedEmail)
+                .RuleFor(u => u.UserName, (f, u) => u.Email)
+                .RuleFor(u => u.NormalizedUserName, (f, u) => u.Email?.ToLower())
                 .RuleFor(u => u.PasswordHash, (f, u) => passwordHasher.HashPassword(u, "password"))
                 .RuleFor(u => u.TwoFactorEnabled, f => false);
 
             var fakeUsers = userFaker.GenerateBetween(10, 10);
 
-            var alison = new PortalUser
+            var alison = new IdentityUser
             {
                 Id = new Guid().ToString(),
-                Name = "Alison",
                 Email = "alisonjoyforster@gmail.com",
                 NormalizedEmail = "alisonjoyforster@gmail.com",
-                UserName = "alisonjoyforster@gmail.com",
-                NormalizedUserName = "alisonjoyforster@gmail.com",
+                UserName = "Alison",
+                NormalizedUserName = "alison",
                 TwoFactorEnabled = false
             };
 
@@ -52,7 +50,7 @@ namespace AlchemyCoaching.Server.Data
 
             base.OnModelCreating(builder);
             builder.HasDefaultSchema("AlchemyCoaching");
-            builder.Entity<PortalUser>().HasData(fakeUsers);
+            builder.Entity<IdentityUser>().HasData(fakeUsers);
             builder.Entity<Appointment>().HasData(fakeAppointments);
             builder.Entity<IdentityRole>()
                 .HasData(

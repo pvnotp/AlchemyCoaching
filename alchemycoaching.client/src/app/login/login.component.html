@@ -1,7 +1,5 @@
 
-
-<!--<form class="show login" (ngSubmit)="login()">-->
-<form class="login" (ngSubmit)="login()">
+<form class="login">
   <input name="email"
          placeholder="EMAIL ADDRESS"
          [(ngModel)]="userLogin.email"
@@ -11,17 +9,23 @@
          placeholder="PASSWORD"
          [(ngModel)]="userLogin.password"
          class="login-input" />
-  <br>
+  <input id="name"
+         name="name"
+         placeholder="NAME"
+         [(ngModel)]="name"
+         class="login-input"
+         disabled />
+
   <div class="submit-btn-container">
-    <button id="submit-btn" type="submit">
+    <button id="login" (click)="login()">
       @if(loading){
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       }
       @else{
-      Submit
+      Login
       }
     </button>
-    <button disabled>Register</button>
+    <button id="new-user">New User</button>
     <button disabled>Forgot Password</button>
   </div>
 

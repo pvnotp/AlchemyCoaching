@@ -3,18 +3,18 @@ using ClientPortal.Server.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AlchemyCoaching.Server.Data;
+using Azure.Core;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DemoDbContext>(options =>
-{
-    options
-    .UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnection"), options => options.EnableRetryOnFailure());
-    //.UseSqlite("Data Source=Data/ClientDatabase.db");
-    //.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
+builder.Services.AddDbContext<AlchemyDbContext>(options =>
+{    
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnection"), options => options.EnableRetryOnFailure());
 });
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -29,7 +29,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddIdentityApiEndpoints<PortalUser>().AddEntityFrameworkStores<DemoDbContext>();
+builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<AlchemyDbContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -64,6 +64,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
-app.MapGroup("/users").MapIdentityApi<PortalUser>();
+app.MapGroup("/users").MapIdentityApi<IdentityUser>();
 
 app.Run();

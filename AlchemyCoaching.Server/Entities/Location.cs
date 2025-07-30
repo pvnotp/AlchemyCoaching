@@ -3,6 +3,6 @@
     public enum Location
     {
         Online,
-        Office
+        StoneRidge
     }
 }

@@ -9,22 +9,22 @@ namespace AlchemyCoaching.Server.Controllers
 {
     [Route("users")]
     [ApiController]
-    public class UsersController(DemoDbContext context, ILogger<UsersController> logger) : ControllerBase
+    public class UsersController(AlchemyDbContext context, ILogger<UsersController> logger) : ControllerBase
     {
 
         // GET: api/clients
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PortalUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<IdentityUser>>> GetUsers()
         {
             logger.LogInformation("HELLO");
-            return await context.PortalUsers.ToListAsync();
+            return await context.Users.ToListAsync();
         }
 
         // GET: api/users/email@email.com
         [HttpGet("{email}")]
-        public async Task<ActionResult<PortalUser>> GetUser(string email)
+        public async Task<ActionResult<IdentityUser>> GetUser(string email)
         {
-            var user = await context.PortalUsers.FirstAsync(user => user.Email == email);
+            var user = await context.Users.FirstAsync(user => user.Email == email);
 
             if (user == null)
             {
@@ -37,7 +37,7 @@ namespace AlchemyCoaching.Server.Controllers
         // PUT: api/users/
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(string id, PortalUser user)
+        public async Task<IActionResult> PutUser(string id, IdentityUser user)
         {
             if (id != user.Id)
             {
@@ -68,9 +68,9 @@ namespace AlchemyCoaching.Server.Controllers
         // POST: api/users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<PortalUser>> PostUser(PortalUser user)
+        public async Task<ActionResult<IdentityUser>> PostUser(IdentityUser user)
         {
-            context.PortalUsers.Add(user);
+            context.Users.Add(user);
             await context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
@@ -80,13 +80,13 @@ namespace AlchemyCoaching.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
-            var user = await context.PortalUsers.FindAsync(id);
+            var user = await context.Users.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
 
-            context.PortalUsers.Remove(user);
+            context.Users.Remove(user);
             await context.SaveChangesAsync();
 
             return NoContent();
@@ -94,7 +94,7 @@ namespace AlchemyCoaching.Server.Controllers
 
         private bool UserExists(string id)
         {
-            return context.PortalUsers.Any(e => e.Id == id);
+            return context.Users.Any(e => e.Id == id);
         }
     }
 }

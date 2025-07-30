@@ -20,7 +20,11 @@
   border: 1px solid white;
 }
 
-.submit-btn-container{
+#name:disabled {
+  display: none
+}
+
+.button-container{
     display: flex;
     justify-content: space-between;
     padding: 5px;
@@ -49,8 +53,12 @@ button:disabled{
     border: $medium 3px solid;
 }
 
-#submit-btn{
+#login{
     width: 70px;
+}
+
+#new-user{
+    width: 80px;
 }
 
 .error {

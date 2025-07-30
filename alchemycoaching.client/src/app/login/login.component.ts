@@ -2,7 +2,8 @@ import { Component, HostListener, inject, input, output, OutputEmitterRef } from
 import { FormsModule } from '@angular/forms';
 import { AccountService, userLogin } from '../_services/account-service';
 import { Router } from '@angular/router';
-import { finalize, mergeMap } from 'rxjs/operators';
+import { concatMap, finalize, mergeMap } from 'rxjs/operators';
+import { concat } from 'rxjs';
 
 
 @Component({
@@ -19,19 +20,23 @@ export class LoginComponent {
   loginSuccessful: OutputEmitterRef<void> = output();
   loading = false;
   errorMessage = "";
+  registerEnabled = false;
   userLogin: userLogin = {
-    email: null,
-    password: null
+    email: "",
+    password: ""
   }
+  name = "";
 
   login() {
     this.errorMessage = "";
     this.loading = true;
-    document.getElementById("submit-btn")?.setAttribute("disabled", "true");
-    this.accountService.setToken(this.userLogin).pipe(
-      mergeMap(_ => this.accountService.setUser(this.userLogin)),
+    document.getElementById("login")?.toggleAttribute("disabled");
+    document.getElementById("new-user")?.toggleAttribute("disabled");
+
+    this.accountService.login(this.userLogin).pipe(
       finalize(() => {
-        document.getElementById("submit-btn")?.removeAttribute("disabled");
+        document.getElementById("login")?.toggleAttribute("disabled");
+        document.getElementById("new-user")?.toggleAttribute("disabled");
         this.loading = false;
       })
     ).subscribe({
@@ -40,11 +45,10 @@ export class LoginComponent {
         if (error.status == 401) {
           this.errorMessage = "Incorrect username or password";
         }
-        else if (error.status == 500) {
+        else {
           this.errorMessage = "Something went wrong!  Please refresh your page and try again.";
-        } 
+        }
       }
     });
   }
-  
 }

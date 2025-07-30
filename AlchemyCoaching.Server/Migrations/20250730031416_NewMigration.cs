@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AlchemyCoaching.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class fresh_database : Migration
+    public partial class NewMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,7 @@ namespace AlchemyCoaching.Server.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ClientId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Coach = table.Column<int>(type: "int", nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Location = table.Column<int>(type: "int", nullable: false),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -54,8 +55,6 @@ namespace AlchemyCoaching.Server.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -196,39 +195,39 @@ namespace AlchemyCoaching.Server.Migrations
             migrationBuilder.InsertData(
                 schema: "AlchemyCoaching",
                 table: "Appointment",
-                columns: new[] { "Id", "ClientId", "Location", "Note", "Time" },
+                columns: new[] { "Id", "ClientId", "Coach", "Location", "Note", "Time" },
                 values: new object[,]
                 {
-                    { 1, "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988", 0, "Suscipit ipsum ea aliquid aut ut omnis et quo. Natus nisi est vero consequuntur qui. Quibusdam nihil sit. Itaque repellat excepturi accusamus sed. Enim praesentium voluptas optio tenetur et et similique magni.", new DateTime(2025, 2, 23, 19, 59, 53, 108, DateTimeKind.Unspecified).AddTicks(3833) },
-                    { 2, "9844b374-0a9a-486f-8d6d-86fc85c6ceb0", 0, "Eius facilis id quis architecto.\nNon voluptas iusto sint sit et autem consequatur.\nEst et voluptatem magni illo delectus est.\nVelit tempora libero omnis et sit autem laborum.\nVoluptatem similique consectetur reprehenderit modi est quia et corrupti.", new DateTime(2025, 3, 11, 23, 13, 56, 761, DateTimeKind.Unspecified).AddTicks(3110) },
-                    { 3, "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988", 0, "Aliquam ut et dicta velit quibusdam ut numquam voluptatum.\nDolores eius at debitis sint.", new DateTime(2025, 1, 25, 23, 37, 28, 112, DateTimeKind.Unspecified).AddTicks(7457) },
-                    { 4, "7bb53c7e-feae-47c3-9bf8-d47e4b66055b", 0, "Consectetur aliquam sunt et corrupti molestiae aut accusamus aperiam. Excepturi suscipit aliquam autem sunt vitae quia. Reiciendis tempora autem qui dolore.", new DateTime(2025, 3, 29, 7, 2, 13, 33, DateTimeKind.Unspecified).AddTicks(7589) },
-                    { 5, "9844b374-0a9a-486f-8d6d-86fc85c6ceb0", 0, "Consectetur libero pariatur aut sed. Explicabo porro ut qui quis qui recusandae. Tenetur hic in qui quis. Asperiores sunt ducimus quo. Ducimus quae est tempora sed.", new DateTime(2025, 6, 13, 14, 10, 46, 477, DateTimeKind.Unspecified).AddTicks(4921) },
-                    { 6, "a2d15849-5376-4e4b-af5d-accb1ffa3935", 0, "Occaecati minus voluptatum non velit qui earum.", new DateTime(2025, 4, 24, 0, 2, 9, 39, DateTimeKind.Unspecified).AddTicks(4056) },
-                    { 7, "d61ac6e5-72e0-4e5a-9946-10c694abeef6", 0, "eos", new DateTime(2025, 1, 6, 23, 47, 20, 969, DateTimeKind.Unspecified).AddTicks(6472) },
-                    { 8, "8356b7ff-89f7-4835-b16a-7eca2102bd5b", 0, "Veniam ut facilis consequatur soluta.", new DateTime(2025, 2, 22, 14, 5, 43, 187, DateTimeKind.Unspecified).AddTicks(9180) },
-                    { 9, "8356b7ff-89f7-4835-b16a-7eca2102bd5b", 0, "Expedita repellendus odit.\nQuas unde est quo cumque.\nUt odit dolores rem omnis illo.", new DateTime(2025, 6, 3, 19, 18, 18, 215, DateTimeKind.Unspecified).AddTicks(5637) },
-                    { 10, "f8294be2-341c-4a94-97c6-6e9f2a189070", 0, "Ullam earum minus. Mollitia doloremque ea maiores. Expedita qui aliquid illum eum fugit.", new DateTime(2025, 3, 3, 20, 11, 38, 254, DateTimeKind.Unspecified).AddTicks(6213) },
-                    { 11, "f8294be2-341c-4a94-97c6-6e9f2a189070", 0, "Quia consequatur rerum dolores eligendi voluptas temporibus est officiis.", new DateTime(2025, 1, 12, 7, 12, 51, 681, DateTimeKind.Unspecified).AddTicks(421) },
-                    { 12, "8356b7ff-89f7-4835-b16a-7eca2102bd5b", 0, "Ducimus perspiciatis dolores.\nQuo ut odio cumque amet vel.\nVoluptas repudiandae eveniet quis odio dignissimos facilis dolorem fugiat.\nNostrum earum vitae.\nBlanditiis cum expedita maiores ducimus eos nam libero.", new DateTime(2025, 4, 3, 1, 6, 59, 344, DateTimeKind.Unspecified).AddTicks(4658) },
-                    { 13, "a2d15849-5376-4e4b-af5d-accb1ffa3935", 0, "At animi id officiis nesciunt rerum non soluta.", new DateTime(2025, 6, 4, 2, 2, 30, 798, DateTimeKind.Unspecified).AddTicks(918) },
-                    { 14, "2618f4d1-f4a8-4584-901c-57b233900da2", 0, "Sed et labore maxime.", new DateTime(2025, 1, 27, 2, 42, 39, 692, DateTimeKind.Unspecified).AddTicks(8840) },
-                    { 15, "9844b374-0a9a-486f-8d6d-86fc85c6ceb0", 0, "Cupiditate explicabo nesciunt sint quam nostrum laboriosam autem suscipit repellendus. Rerum quia rerum. Libero animi aliquid quibusdam. Animi dolorem error eius adipisci molestiae dolorem deleniti. Molestias eaque corrupti et recusandae earum voluptas deserunt minima.", new DateTime(2025, 4, 6, 15, 58, 38, 318, DateTimeKind.Unspecified).AddTicks(4020) },
-                    { 16, "8356b7ff-89f7-4835-b16a-7eca2102bd5b", 0, "omnis", new DateTime(2025, 3, 20, 18, 41, 11, 605, DateTimeKind.Unspecified).AddTicks(2365) },
-                    { 17, "2618f4d1-f4a8-4584-901c-57b233900da2", 0, "Maiores vero qui.\nQui consequatur eos qui qui cupiditate quia alias.\nVoluptas est est molestiae alias ut asperiores.\nRepellat tenetur explicabo provident aliquid ea quia.", new DateTime(2025, 3, 28, 22, 47, 17, 551, DateTimeKind.Unspecified).AddTicks(1237) },
-                    { 18, "8356b7ff-89f7-4835-b16a-7eca2102bd5b", 0, "Magnam placeat est repudiandae quaerat id ut minima omnis occaecati. Et non consequatur qui ipsa perferendis. Enim commodi repudiandae quisquam ab. Est sint autem est dicta.", new DateTime(2025, 4, 21, 18, 44, 45, 87, DateTimeKind.Unspecified).AddTicks(6746) },
-                    { 19, "f8294be2-341c-4a94-97c6-6e9f2a189070", 0, "Ut sint consequatur unde ut.\nQuasi facere eligendi et id saepe.\nQuae repudiandae animi et eos numquam dolorem voluptas.\nAliquam qui harum qui aliquid placeat eligendi expedita.", new DateTime(2025, 5, 21, 23, 44, 47, 614, DateTimeKind.Unspecified).AddTicks(6450) },
-                    { 20, "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988", 0, "Commodi quaerat enim repellat et quaerat.\nSequi hic neque.\nIpsa ad rem porro explicabo pariatur adipisci consequatur.", new DateTime(2025, 1, 2, 13, 44, 19, 315, DateTimeKind.Unspecified).AddTicks(3556) },
-                    { 21, "9844b374-0a9a-486f-8d6d-86fc85c6ceb0", 0, "Non sed ad odio deserunt voluptatum ut.\nEum aut veniam nemo non ipsam delectus fugiat cupiditate unde.", new DateTime(2025, 3, 4, 20, 14, 6, 883, DateTimeKind.Unspecified).AddTicks(4956) },
-                    { 22, "9844b374-0a9a-486f-8d6d-86fc85c6ceb0", 0, "aut", new DateTime(2025, 2, 25, 8, 28, 49, 583, DateTimeKind.Unspecified).AddTicks(8992) },
-                    { 23, "2618f4d1-f4a8-4584-901c-57b233900da2", 0, "Labore repellendus eius sit et cupiditate.", new DateTime(2025, 2, 16, 2, 11, 53, 451, DateTimeKind.Unspecified).AddTicks(6484) },
-                    { 24, "7bb53c7e-feae-47c3-9bf8-d47e4b66055b", 0, "Error sunt id iure. Autem aut est. A nihil eos voluptatem quibusdam voluptatem ea fugit quis dolorem. Ratione quibusdam rerum.", new DateTime(2025, 3, 30, 11, 36, 59, 627, DateTimeKind.Unspecified).AddTicks(8774) },
-                    { 25, "d61ac6e5-72e0-4e5a-9946-10c694abeef6", 0, "Nihil cum sit rerum.", new DateTime(2025, 3, 8, 23, 42, 16, 784, DateTimeKind.Unspecified).AddTicks(7634) },
-                    { 26, "1e0ff4af-05e6-4dc4-ad25-edec7652ff45", 0, "Unde qui nemo autem provident atque. Aut voluptate ab omnis quaerat exercitationem dicta. Ad commodi maiores eius est in nostrum autem maiores et. Impedit repellendus autem.", new DateTime(2025, 4, 19, 17, 8, 1, 513, DateTimeKind.Unspecified).AddTicks(271) },
-                    { 27, "2618f4d1-f4a8-4584-901c-57b233900da2", 0, "explicabo", new DateTime(2025, 4, 27, 18, 54, 57, 919, DateTimeKind.Unspecified).AddTicks(2434) },
-                    { 28, "2618f4d1-f4a8-4584-901c-57b233900da2", 0, "Praesentium molestias aut praesentium consequatur quibusdam natus ullam odio.\nAsperiores quia labore quae eius.", new DateTime(2025, 6, 2, 19, 29, 35, 637, DateTimeKind.Unspecified).AddTicks(2515) },
-                    { 29, "8356b7ff-89f7-4835-b16a-7eca2102bd5b", 0, "Dicta incidunt aliquid ratione sit saepe ut. Assumenda nihil minus soluta natus amet sit. Aut laboriosam occaecati qui. Nobis eius ut dicta debitis laborum non illo.", new DateTime(2025, 5, 14, 5, 24, 13, 621, DateTimeKind.Unspecified).AddTicks(9668) },
-                    { 30, "7bb53c7e-feae-47c3-9bf8-d47e4b66055b", 0, "Fuga vel perferendis. Voluptatem quo quos perspiciatis. Natus eos recusandae. Neque et qui voluptatem earum quisquam suscipit voluptates. Doloribus et est ipsum aut quia ut. Quisquam velit architecto voluptas nam modi quod commodi nulla.", new DateTime(2025, 2, 5, 7, 55, 26, 861, DateTimeKind.Unspecified).AddTicks(1445) }
+                    { 1, "8a5bfbc4-50ff-46fc-a2eb-9cc63ded88e3", 0, 0, "Deleniti soluta dolore quidem et. Ipsam voluptatem hic sed rerum qui qui enim nisi earum. Cumque corporis asperiores eum.", new DateTime(2025, 3, 27, 7, 40, 24, 249, DateTimeKind.Unspecified).AddTicks(7444) },
+                    { 2, "4b7f463b-2129-4ab2-adfb-c7f1ae861f5a", 0, 0, "Quaerat nihil voluptate fugiat corporis reiciendis. Consectetur iusto occaecati nemo doloribus corrupti et placeat aut ipsum. Libero reprehenderit quos non laborum cupiditate ut. Delectus explicabo tempore. Dolorum ut perspiciatis rerum. Rerum sit nihil a.", new DateTime(2025, 12, 13, 20, 16, 25, 977, DateTimeKind.Unspecified).AddTicks(2477) },
+                    { 3, "4b7f463b-2129-4ab2-adfb-c7f1ae861f5a", 0, 0, "Aspernatur autem error et praesentium.\nQuia consequatur non eaque.\nTotam suscipit reprehenderit omnis.\nQui voluptates suscipit voluptas velit rerum rerum nemo magni aliquam.\nConsequatur modi est animi eum ipsa.\nBeatae doloribus dolor dolores qui dolore sunt accusantium qui sunt.", new DateTime(2025, 12, 6, 21, 24, 59, 371, DateTimeKind.Unspecified).AddTicks(8935) },
+                    { 4, "35bc7f81-b492-487f-981d-767d4d1605f8", 0, 0, "Illum quis soluta.", new DateTime(2025, 10, 18, 10, 25, 49, 401, DateTimeKind.Unspecified).AddTicks(5705) },
+                    { 5, "c6654d38-aa6d-48cb-9510-9c37b6cac539", 0, 0, "nihil", new DateTime(2025, 8, 29, 10, 0, 43, 780, DateTimeKind.Unspecified).AddTicks(9941) },
+                    { 6, "a7f0f254-4b16-45bf-9b58-223b1758279f", 0, 0, "voluptates", new DateTime(2025, 12, 24, 19, 38, 36, 676, DateTimeKind.Unspecified).AddTicks(6463) },
+                    { 7, "2557440c-ce23-4bb7-9e56-415c896895f9", 0, 0, "In rerum blanditiis tempora dolor.\nNesciunt in reprehenderit fugiat.\nMolestiae ex quo tempore molestias iure qui nostrum.\nVoluptatem dolore aut.", new DateTime(2025, 6, 4, 1, 10, 59, 480, DateTimeKind.Unspecified).AddTicks(8457) },
+                    { 8, "a7f0f254-4b16-45bf-9b58-223b1758279f", 0, 0, "dolor", new DateTime(2025, 8, 28, 15, 58, 52, 746, DateTimeKind.Unspecified).AddTicks(8031) },
+                    { 9, "9df337a9-1d0e-4986-aa74-d4aa690b3e1a", 0, 0, "Alias ipsa ullam aut temporibus qui mollitia beatae. Corporis et consequatur accusamus delectus culpa. Aliquid possimus esse sit rerum deserunt dolores aut autem. Provident rerum numquam autem expedita minus iusto consequatur aut eum. Eum excepturi suscipit fugiat odio alias. Aut consequatur quas delectus sit sunt.", new DateTime(2025, 6, 26, 17, 52, 42, 911, DateTimeKind.Unspecified).AddTicks(9106) },
+                    { 10, "c6654d38-aa6d-48cb-9510-9c37b6cac539", 0, 0, "Eaque id incidunt voluptatibus. Vero minima nihil omnis molestias mollitia molestiae sit maxime. Et sequi esse voluptates ut dignissimos enim similique ut harum. Repellat aut fugiat aut consequuntur qui.", new DateTime(2025, 11, 16, 11, 0, 32, 881, DateTimeKind.Unspecified).AddTicks(6237) },
+                    { 11, "d99dc1a4-6e16-492d-8151-90b6aa2d7d7f", 0, 0, "rerum", new DateTime(2025, 6, 5, 3, 38, 45, 338, DateTimeKind.Unspecified).AddTicks(8363) },
+                    { 12, "2557440c-ce23-4bb7-9e56-415c896895f9", 0, 0, "Qui qui odio nemo perferendis.\nIpsa hic facere totam.\nQuaerat debitis consequatur et temporibus dolores mollitia.\nNulla vero alias repellendus vero.\nCulpa in ex qui.", new DateTime(2025, 10, 13, 14, 11, 34, 695, DateTimeKind.Unspecified).AddTicks(8085) },
+                    { 13, "8a5bfbc4-50ff-46fc-a2eb-9cc63ded88e3", 0, 0, "consectetur", new DateTime(2025, 7, 10, 15, 28, 18, 765, DateTimeKind.Unspecified).AddTicks(8210) },
+                    { 14, "2557440c-ce23-4bb7-9e56-415c896895f9", 0, 0, "Esse id reprehenderit est reprehenderit.\nQui et eos exercitationem omnis porro accusamus.\nEaque et est beatae.\nMolestias cumque nesciunt voluptas veniam nihil quis est quod harum.\nSint natus neque id quis facilis fuga sequi reprehenderit.", new DateTime(2025, 8, 30, 20, 35, 10, 461, DateTimeKind.Unspecified).AddTicks(1473) },
+                    { 15, "8a5bfbc4-50ff-46fc-a2eb-9cc63ded88e3", 0, 0, "Ut minus et a.", new DateTime(2025, 12, 11, 5, 19, 46, 563, DateTimeKind.Unspecified).AddTicks(3412) },
+                    { 16, "6507f074-b299-4abb-8b9c-c69d59a11504", 0, 0, "Et molestiae rerum deleniti non amet sit.\nQui dolorem sed et quisquam hic aliquid.", new DateTime(2025, 9, 5, 1, 21, 32, 262, DateTimeKind.Unspecified).AddTicks(2074) },
+                    { 17, "6507f074-b299-4abb-8b9c-c69d59a11504", 0, 0, "Qui quisquam magnam sint eos aut iste quia.", new DateTime(2025, 10, 26, 21, 55, 12, 505, DateTimeKind.Unspecified).AddTicks(4650) },
+                    { 18, "8a5bfbc4-50ff-46fc-a2eb-9cc63ded88e3", 0, 0, "rerum", new DateTime(2025, 8, 30, 18, 45, 24, 618, DateTimeKind.Unspecified).AddTicks(4056) },
+                    { 19, "d99dc1a4-6e16-492d-8151-90b6aa2d7d7f", 0, 0, "Quidem id totam magnam aut quia. Aut ipsa animi accusantium voluptas eos. Est et ut fugit sed.", new DateTime(2025, 4, 16, 2, 18, 52, 384, DateTimeKind.Unspecified).AddTicks(8799) },
+                    { 20, "4b7f463b-2129-4ab2-adfb-c7f1ae861f5a", 0, 0, "Consectetur enim repellendus.", new DateTime(2025, 7, 10, 7, 0, 6, 500, DateTimeKind.Unspecified).AddTicks(907) },
+                    { 21, "35bc7f81-b492-487f-981d-767d4d1605f8", 0, 0, "Facere velit error alias autem adipisci nobis et voluptatum dolorem.\nQuod in omnis corporis.\nNihil culpa voluptatem ut et laborum a.\nBlanditiis et minima illum esse.", new DateTime(2025, 4, 2, 14, 5, 40, 350, DateTimeKind.Unspecified).AddTicks(3848) },
+                    { 22, "a7f0f254-4b16-45bf-9b58-223b1758279f", 0, 0, "Earum debitis ipsa sequi et occaecati eius.", new DateTime(2025, 5, 25, 10, 8, 10, 144, DateTimeKind.Unspecified).AddTicks(4994) },
+                    { 23, "6507f074-b299-4abb-8b9c-c69d59a11504", 0, 0, "Consequatur sit aut harum eos.\nVoluptatem id molestias temporibus.\nQuasi harum saepe amet.\nVeniam unde minus aut.", new DateTime(2025, 9, 16, 23, 53, 14, 339, DateTimeKind.Unspecified).AddTicks(2406) },
+                    { 24, "a7f0f254-4b16-45bf-9b58-223b1758279f", 0, 0, "Consequatur aut non dolore enim nesciunt. Voluptatem exercitationem quia sapiente sunt id rem consequatur. In dolorem mollitia soluta tempora modi odio sed. Eos veniam ab nisi ut.", new DateTime(2025, 2, 2, 16, 29, 22, 66, DateTimeKind.Unspecified).AddTicks(5581) },
+                    { 25, "d99dc1a4-6e16-492d-8151-90b6aa2d7d7f", 0, 0, "Qui quam est aut.", new DateTime(2025, 5, 6, 3, 47, 4, 696, DateTimeKind.Unspecified).AddTicks(3799) },
+                    { 26, "6507f074-b299-4abb-8b9c-c69d59a11504", 0, 0, "Ipsa distinctio officia illo voluptatem corporis aut.", new DateTime(2025, 1, 11, 22, 38, 12, 562, DateTimeKind.Unspecified).AddTicks(716) },
+                    { 27, "c6654d38-aa6d-48cb-9510-9c37b6cac539", 0, 0, "Voluptatem et quam placeat laborum eveniet.\nDolor et quam perferendis pariatur sed voluptas vitae aut consectetur.\nEt sint aut vitae cumque ut eaque ea sit.\nEst necessitatibus laborum est.", new DateTime(2025, 5, 3, 11, 12, 24, 741, DateTimeKind.Unspecified).AddTicks(5374) },
+                    { 28, "4b7f463b-2129-4ab2-adfb-c7f1ae861f5a", 0, 0, "Itaque nihil est at.\nQuo unde autem eaque aperiam et libero perspiciatis.", new DateTime(2025, 12, 8, 14, 37, 41, 732, DateTimeKind.Unspecified).AddTicks(7399) },
+                    { 29, "a7f0f254-4b16-45bf-9b58-223b1758279f", 0, 0, "Eaque officia aut.\nVoluptatem voluptate aut eaque distinctio perspiciatis.", new DateTime(2025, 2, 7, 15, 17, 34, 270, DateTimeKind.Unspecified).AddTicks(3931) },
+                    { 30, "8a5bfbc4-50ff-46fc-a2eb-9cc63ded88e3", 0, 0, "Eos impedit explicabo rem aut rerum suscipit.", new DateTime(2025, 6, 11, 11, 39, 20, 663, DateTimeKind.Unspecified).AddTicks(2395) }
                 });
 
             migrationBuilder.InsertData(
@@ -237,26 +236,28 @@ namespace AlchemyCoaching.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "53c128ff-e28d-4f22-908c-12abed534cc5", null, "Admin", "ADMIN" },
-                    { "761481ad-b971-49b9-9389-1f0599751dd6", null, "Client", "CLIENT" }
+                    { "1e38844f-a3d6-4c5c-9ce5-84799105b249", null, "Client", "CLIENT" },
+                    { "5fc772b7-f0b2-475f-987f-9fd5cfc43886", null, "Admin", "ADMIN" },
+                    { "bd1efe44-7a72-4014-b3b1-9193bdd420bf", null, "Coach", "COACH" }
                 });
 
             migrationBuilder.InsertData(
                 schema: "AlchemyCoaching",
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1e0ff4af-05e6-4dc4-ad25-edec7652ff45", 0, "29c2fa94-2db2-45fb-805e-18192cc21d22", "Lula.Orn57@email.com", false, "Lula", "Orn", false, null, "lula.orn57@email.com", "lula.orn57@email.com", "AQAAAAIAAYagAAAAEN5yfCNehYd6NrrE2nyCJZSyal7qxJS4897qUvs8D8HWi/2mAZ/DZrfMyYuLclU6lw==", null, false, "670675a8-4060-4981-bc19-3918258e3b7f", false, "lula.orn57@email.com" },
-                    { "2618f4d1-f4a8-4584-901c-57b233900da2", 0, "acb2feb5-9758-4451-88ee-3c3929d4017c", "Katie_Terry@email.com", false, "Katie", "Terry", false, null, "katie_terry@email.com", "katie_terry@email.com", "AQAAAAIAAYagAAAAEIZJG2ErxEyoVFxGwxXQ3/BwUbA3Owak0E6Q8xL75Ty147jy/gskKNmFnsZD4tMhVA==", null, false, "6c9ab80f-db3f-4d21-a952-c4cdb0e47907", false, "katie_terry@email.com" },
-                    { "41ef70d3-b947-4099-b772-b77df022cc23", 0, "31bf2d74-5667-480b-89d6-ddda4d390455", "Jacquelyn.Cormier18@email.com", false, "Jacquelyn", "Cormier", false, null, "jacquelyn.cormier18@email.com", "jacquelyn.cormier18@email.com", "AQAAAAIAAYagAAAAEDN4LQVIBLgPAu22eoblaR8OvgIy5eJOw+ucT6MowgTrgIc6YzCAPfIvFAFWQq0qdw==", null, false, "050706dc-8efe-4b44-b7b6-8401efb0d3ad", false, "jacquelyn.cormier18@email.com" },
-                    { "7bb53c7e-feae-47c3-9bf8-d47e4b66055b", 0, "759a5282-1d52-44ac-bad1-a30bdf3839c7", "Herbert_Luettgen9@email.com", false, "Herbert", "Luettgen", false, null, "herbert_luettgen9@email.com", "herbert_luettgen9@email.com", "AQAAAAIAAYagAAAAENUqiP38AGTJVrzLh+GXAgQ5mXQnJfK7enPavBlNFpkq5fjd93sUtnU2JaePAviiAQ==", null, false, "33852f04-0f51-4bf8-9b94-42cabbce8c60", false, "herbert_luettgen9@email.com" },
-                    { "8356b7ff-89f7-4835-b16a-7eca2102bd5b", 0, "755f8ed0-0de5-4edf-a184-64ded9cfdfe8", "Eloise35@email.com", false, "Eloise", "Olson", false, null, "eloise35@email.com", "eloise35@email.com", "AQAAAAIAAYagAAAAEOe+J423dW7wCeSpVCy7vnFnrPLeqLsYYEIyqYv6/cu7HEJxfgVmT1nkgWO9NyDNsQ==", null, false, "56df5e7b-2ff0-441f-8039-0b4298813ee9", false, "eloise35@email.com" },
-                    { "9844b374-0a9a-486f-8d6d-86fc85c6ceb0", 0, "b9dcfc1a-d447-4048-ad0b-d130d013b9a5", "Agnes_Wolf@email.com", false, "Agnes", "Wolf", false, null, "agnes_wolf@email.com", "agnes_wolf@email.com", "AQAAAAIAAYagAAAAEA1xhosSSEA9dPj2zziNqmoFHWCzwK17mOysS4vOEW3bP+E4E/1MPJ/oLjZbUr5KGg==", null, false, "64e2c042-f0c0-42eb-9f57-2a4a7bdc0343", false, "agnes_wolf@email.com" },
-                    { "a2d15849-5376-4e4b-af5d-accb1ffa3935", 0, "7e7c26c2-c51c-42d8-ac40-b8f616b6080e", "Hector.Jenkins8@email.com", false, "Hector", "Jenkins", false, null, "hector.jenkins8@email.com", "hector.jenkins8@email.com", "AQAAAAIAAYagAAAAEHgL/njMypSb2Jsa6ihRNosrDw2wP4IeCeHVNyE0UyoOvwqO8j2cVMgMHy2bZ5AOVA==", null, false, "d472ab5d-f198-45d8-98ea-c6ebf168c797", false, "hector.jenkins8@email.com" },
-                    { "d61ac6e5-72e0-4e5a-9946-10c694abeef6", 0, "1a07b1bc-9bb5-4eaf-9b90-06e61ed740f7", "Paulette.Heaney@email.com", false, "Paulette", "Heaney", false, null, "paulette.heaney@email.com", "paulette.heaney@email.com", "AQAAAAIAAYagAAAAEPENMUUfZatwDPzB+ecInS9Dcv2cqHhiraOoh9YhDe6oK5L41dWj6daJGtEC5Wfs1g==", null, false, "735f10d4-5d2d-4ed5-a2ed-5366bc0dc217", false, "paulette.heaney@email.com" },
-                    { "e0b1b8e1-31c9-495d-bc9b-8f3a47c20988", 0, "c4f60b9d-1295-4cd4-90e4-c64591946504", "Gregg69@email.com", false, "Gregg", "Larson", false, null, "gregg69@email.com", "gregg69@email.com", "AQAAAAIAAYagAAAAELWZywuRjh5KRlyJq9ShgzkBrsg/U0M0bM4Obr/NhJtZhIZEZCaDGWD0LGs34xrLXg==", null, false, "fe0f98df-895e-4a2e-8b97-1abfb1ea2ca3", false, "gregg69@email.com" },
-                    { "f8294be2-341c-4a94-97c6-6e9f2a189070", 0, "804e72ec-bfd2-4f7c-93b6-c0e75a4208cf", "Kelli.Schumm67@email.com", false, "Kelli", "Schumm", false, null, "kelli.schumm67@email.com", "kelli.schumm67@email.com", "AQAAAAIAAYagAAAAEDdYtKRXPjhuIKKPrYGLDU7CU0X8R0nCRfwbTkrqG1bYEAvGf0figSNVpSLbgiS2CQ==", null, false, "bbf7425d-c9b9-45c5-a242-90af889b6645", false, "kelli.schumm67@email.com" }
+                    { "00000000-0000-0000-0000-000000000000", 0, "78f139ad-bac0-456c-bc25-8e68d12f2784", "alisonjoyforster@gmail.com", false, false, null, "alisonjoyforster@gmail.com", "alison", "AQAAAAIAAYagAAAAEN1+YUvTQUfF4BY2XEDNILwoCLQrSqSTC40wuS0RlSYGfbKH8EhdUejAIxR9czTKdw==", null, false, "94e15e72-2136-44b8-9b00-bde0f26188ee", false, "Alison" },
+                    { "2557440c-ce23-4bb7-9e56-415c896895f9", 0, "2b8c2053-fa94-4e33-a2f9-2acea425a4bf", "Charlotte79@email.com", false, false, null, "charlotte79@email.com", "charlotte_wolff86", "AQAAAAIAAYagAAAAEJuzEkoJCXBc906zQ9ONxSm69SltXaV1LmrBYyBCC5ufPTWv3KFr1X1d3oCwNfTLlw==", null, false, "ad48f279-7112-4f69-a92b-06d76cfc5299", false, "Charlotte_Wolff86" },
+                    { "35bc7f81-b492-487f-981d-767d4d1605f8", 0, "90179e32-a78d-4481-95d7-beb6e3dcfd32", "Bradley.Howell86@email.com", false, false, null, "bradley.howell86@email.com", "bradley.howell", "AQAAAAIAAYagAAAAEPllpA9l0a/ighXJ8iFdAOOpZFB3efF1MAHusWJBZecWRFxUiH6YDSpCLn2ZDqC67g==", null, false, "51797b54-78d8-41c7-a875-259ff05b8864", false, "Bradley.Howell" },
+                    { "46c2621d-c662-47c6-8d58-ee683fb12e6a", 0, "87dcabf7-32e1-4100-a374-02f16eceda03", "Gilbert35@email.com", false, false, null, "gilbert35@email.com", "gilbert24", "AQAAAAIAAYagAAAAEJ5k6vr+J+Tg2uA+Ws+dAhpuLUYKAzyfKKL/R2p6bIvOY2RCTByxkON4tvoMFdwS/g==", null, false, "bb310fc4-5f9a-4768-b497-bb8a6f22e8a2", false, "Gilbert24" },
+                    { "4b7f463b-2129-4ab2-adfb-c7f1ae861f5a", 0, "7fb8f0c5-0e0d-4b52-9620-961e8ce96d31", "Malcolm.Gerhold75@email.com", false, false, null, "malcolm.gerhold75@email.com", "malcolm.gerhold47", "AQAAAAIAAYagAAAAEDUhQaRt/NqodAq2STg9cjZziJFvcT38gaGmHs52XZaF21BJprHzxUkmU45AZC6E0Q==", null, false, "e4c20f60-ea78-47c3-97d5-713fb10ee9bb", false, "Malcolm.Gerhold47" },
+                    { "6507f074-b299-4abb-8b9c-c69d59a11504", 0, "34a44e2c-eaa1-4c92-bbb2-20d72e9719c3", "Melody_Morar@email.com", false, false, null, "melody_morar@email.com", "melody2", "AQAAAAIAAYagAAAAEBWBAR3OAJ3v3IH8yHXx7zufsx79GHsuOeDVWx0b1Te8/74HwXwhaEM3vaiDwJAwDw==", null, false, "e8e14515-805f-48c8-ba39-19f2851fdf81", false, "Melody2" },
+                    { "8a5bfbc4-50ff-46fc-a2eb-9cc63ded88e3", 0, "22ff1534-10e4-4ec2-b708-9480734c9407", "Edwin_Funk@email.com", false, false, null, "edwin_funk@email.com", "edwin_funk85", "AQAAAAIAAYagAAAAEN+P9vYRyHsQysQm4TccgYHDlAxOhq0CqFzk4ZXkTEdo4PKsDmYYvkIwPkXzTa72lg==", null, false, "52cbab99-794a-420f-a1f6-9173bca478cd", false, "Edwin_Funk85" },
+                    { "9df337a9-1d0e-4986-aa74-d4aa690b3e1a", 0, "dd0a8247-e368-4aac-9123-4c4d8aa54815", "Maggie.Runolfsson@email.com", false, false, null, "maggie.runolfsson@email.com", "maggie17", "AQAAAAIAAYagAAAAEFWHXiny+gadWLK9sDRHwwygHWrRCwwag2bk8P01fKZb2Bq1Z0LaBUaV6XCGV1tN6w==", null, false, "6a3ab2da-d472-460a-96ba-2596214c2426", false, "Maggie17" },
+                    { "a7f0f254-4b16-45bf-9b58-223b1758279f", 0, "557cefee-436d-4028-bc77-781d1ab482e5", "Alexandra.Thiel41@email.com", false, false, null, "alexandra.thiel41@email.com", "alexandra88", "AQAAAAIAAYagAAAAEGC936xdz8IIzuZ4fzj38/6JByCxtikzWf17VJtUGxGrB04Mp4is7jdX9sjR/Qb4kQ==", null, false, "b07ee2eb-e29f-4f81-a0ac-dbe2ec61abc6", false, "Alexandra88" },
+                    { "c6654d38-aa6d-48cb-9510-9c37b6cac539", 0, "0e8c6f19-f65a-4063-a99d-77df7de96a33", "Charlotte63@email.com", false, false, null, "charlotte63@email.com", "charlotte78", "AQAAAAIAAYagAAAAEMldfGyRHZalk9QHTvTRZiSx8LL2rU6sT0rjbGS9RltGxwldOBWcDA+wSmFreoiY8g==", null, false, "9ef0a72f-3162-48eb-93d9-f6c2ed340bcd", false, "Charlotte78" },
+                    { "d99dc1a4-6e16-492d-8151-90b6aa2d7d7f", 0, "4f14225c-408f-4f82-a7e2-3693fe543711", "Edmund87@email.com", false, false, null, "edmund87@email.com", "edmund22", "AQAAAAIAAYagAAAAEGkSRZtnRpsBmVYCCDtEmsqvnzhuEkYEjJfGhziBzaNqZmId7JwqYDlEZ6PVEtmS5Q==", null, false, "8e57d869-76fd-4d20-b29a-04404e8a4afc", false, "Edmund22" }
                 });
 
             migrationBuilder.CreateIndex(
