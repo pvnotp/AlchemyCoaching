@@ -1,23 +1,20 @@
 
-<form class="login">
+<form class="login-form">
   <input name="email"
          placeholder="EMAIL ADDRESS"
          [(ngModel)]="userLogin.email"
-         class="login-input" />
+         class="login-input"
+         [disabled]="loading"/>
   <br>
   <input type="password" name="password"
          placeholder="PASSWORD"
          [(ngModel)]="userLogin.password"
-         class="login-input" />
-  <input id="name"
-         name="name"
-         placeholder="NAME"
-         [(ngModel)]="name"
          class="login-input"
-         disabled />
+         [disabled]="loading"/>
+
 
   <div class="submit-btn-container">
-    <button id="login" (click)="login()">
+    <button class="login" (click)="login()" [disabled]="loading">
       @if(loading){
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       }
@@ -25,7 +22,7 @@
       Login
       }
     </button>
-    <button id="new-user">New User</button>
+    <button class="new-user" [disabled]="loading">New User</button>
     <button disabled>Forgot Password</button>
   </div>
 

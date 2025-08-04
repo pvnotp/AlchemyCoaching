@@ -30,13 +30,9 @@ export class LoginComponent {
   login() {
     this.errorMessage = "";
     this.loading = true;
-    document.getElementById("login")?.toggleAttribute("disabled");
-    document.getElementById("new-user")?.toggleAttribute("disabled");
 
     this.accountService.login(this.userLogin).pipe(
       finalize(() => {
-        document.getElementById("login")?.toggleAttribute("disabled");
-        document.getElementById("new-user")?.toggleAttribute("disabled");
         this.loading = false;
       })
     ).subscribe({

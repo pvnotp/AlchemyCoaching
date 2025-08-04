@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 
-.login {
+.login-form {
   margin: 8px;
   padding: 5px;
   background-color: $dark;
@@ -18,10 +18,6 @@
   width: 295px;
   border-radius: 3px;
   border: 1px solid white;
-}
-
-#name:disabled {
-  display: none
 }
 
 .button-container{
@@ -53,11 +49,11 @@ button:disabled{
     border: $medium 3px solid;
 }
 
-#login{
+.login{
     width: 70px;
 }
 
-#new-user{
+.new-user{
     width: 80px;
 }
 

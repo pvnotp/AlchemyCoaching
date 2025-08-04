@@ -119,6 +119,12 @@ button:hover {
 
 @media (max-width: 900px) {
 
+  .login-container {
+    top: 200px;
+    left: calc(50vw - 166px);
+    background-color: transparent;
+  }
+
     .bottom-nav {
         display: none;
     }
