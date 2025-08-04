@@ -1,19 +1,20 @@
 
-<section class="top-nav" [class.long]="accountService.currentUser()">
+<section class="top-nav" [class.long]="accountService.currentUser()" [class.dropdown]="showDropdownMenu">
 
   <div class="title">Alchemy Coaching</div>
 
-    <ul class="menu">
-      <li><a routerLink="#">Home</a></li>
-      <li><a routerLink="/coaches">Coaches</a></li>
-      <li><a routerLink="/services">Services</a></li>
-      <li><a routerLink="#">Workshops</a></li>
-      <li><a routerLink="#">About</a></li>
-      @if(accountService.currentUser()){
+  <ul class="menu">
+    <li><a routerLink="#">Home</a></li>
+    <li><a routerLink="/coaches">Coaches</a></li>
+    <li><a routerLink="/services">Services</a></li>
+    <li><a routerLink="#">Workshops</a></li>
+    <li><a routerLink="#">About</a></li>
+
+    @if(accountService.currentUser()){
 
       @if(screenWidth > 900){
       <li>
-        <button class="dropdown-toggle" (click)="togglePortalMenu()">{{ accountService.currentUser()?.userName }}</button>
+        <button (click)="togglePortalMenu()" class="dropdown-toggle">{{ accountService.currentUser()?.userName }}</button>
       </li>
       }
       @else{
@@ -22,25 +23,25 @@
       <li><a routerLink="#">Account</a></li>
       <li><button (click)="logout()">Log Out</button></li>
       }
+    }
+    @else{
+    <li>
+      <button popovertarget="login-popover">Log In</button>
+    </li>
+    }
+  </ul>
+  <button class="hamburger-box" (click)="toggleDropdownMenu()">
+    <div class="hamburger-inner"></div>
+  </button>
 
-      }
-      @else{
-      <li>
-        <button (click)="toggleMenu()" popovertarget="login-popover">Log In</button>
-      </li>
-      }
-    </ul>
-    <button class="hamburger-box" (click)="toggleMenu()">
-      <div class="hamburger-inner"></div>
-    </button>
-
+  @if(!accountService.currentUser()){
   <div popover id="login-popover" class="login-container">
     <app-login (loginSuccessful)="onLoginSuccess()"></app-login>
   </div>
+  }
 </section>
 
-
-<section id="client-portal-menu" class="bottom-nav hide">
+<section id="client-portal-menu" class="bottom-nav" [class.hide]="!showPortalMenu">
   <ul class="menu">
     <li><button class="bottom-button" (click)="logout()">Log Out</button></li>
     <li><a routerLink="#">Payments</a></li>
@@ -48,3 +49,5 @@
     <li><a routerLink="#">Account</a></li>
   </ul>
 </section>
+
+

@@ -17,6 +17,8 @@ export class NavBarComponent {
   accountService = inject(AccountService);
   screenWidth = window.innerWidth;
   routerSubscription: Subscription;
+  showDropdownMenu: boolean = false;
+  showPortalMenu: boolean = false;
 
   constructor(private router: Router) {
     this.routerSubscription = this.router.events.subscribe(event => {
@@ -41,21 +43,20 @@ export class NavBarComponent {
   }
 
   onLoginSuccess() {
-    document.getElementById("login-popover")?.hidePopover();
-    document.getElementById("client-portal-menu")?.classList.remove("hide");
-    document.getElementsByClassName("top-nav")[0].classList.add("dropdown");
+    this.showPortalMenu = true;
   }
 
-  toggleMenu() {
-    document.getElementsByClassName("top-nav")[0].classList.toggle("dropdown");
+  toggleDropdownMenu() {
+    this.showDropdownMenu = !this.showDropdownMenu;
   }
 
   togglePortalMenu() {
-    document.getElementById("client-portal-menu")?.classList.toggle("hide");
+    this.showPortalMenu = !this.showPortalMenu;
+    console.log(this.showPortalMenu);
   }
 
   logout() {
     this.accountService.logout();
-    document.getElementById("client-portal-menu")?.classList.add("hide");
+    this.showPortalMenu = false;
   }
 }

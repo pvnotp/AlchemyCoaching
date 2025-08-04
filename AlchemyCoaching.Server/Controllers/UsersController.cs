@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AlchemyCoaching.Server.Data;
 using Microsoft.AspNetCore.Identity;
-using ClientPortal.Server.Entities;
 
 namespace AlchemyCoaching.Server.Controllers
 {
@@ -16,7 +15,6 @@ namespace AlchemyCoaching.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IdentityUser>>> GetUsers()
         {
-            logger.LogInformation("HELLO");
             return await context.Users.ToListAsync();
         }
 
