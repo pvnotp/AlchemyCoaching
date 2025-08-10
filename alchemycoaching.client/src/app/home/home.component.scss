@@ -57,23 +57,16 @@ body {
 }
 
 .button:hover {
-    background-color: white;
-    color: transparent;
-    opacity: 80%;
+  background-color: white;
+  color: transparent;
+  opacity: 80%;
+  color: $dark
 }
 
 
 a {
   text-decoration: none;
   color: white;
-}
-
-a:hover{
-    color: $dark
-}
-
-.button:hover a{
-    color: $dark;
 }
 
 .description {
