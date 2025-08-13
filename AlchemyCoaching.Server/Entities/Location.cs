@@ -1,4 +1,4 @@
-﻿namespace ClientPortal.Server.Entities
+﻿namespace AlchemyCoaching.Server.Entities
 {
     public enum Location
     {
