@@ -1,5 +1,5 @@
-﻿using Bogus;
-using ClientPortal.Server.Entities;
+﻿using AlchemyCoaching.Server.Entities;
+using Bogus;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
