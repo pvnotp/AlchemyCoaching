@@ -23,7 +23,7 @@ export class NavBarComponent {
   constructor(private router: Router) {
     this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        document.getElementsByClassName("top-nav")[0].classList.remove("dropdown");
+        this.showDropdownMenu = false;
       }
     });
   }
@@ -52,11 +52,14 @@ export class NavBarComponent {
 
   togglePortalMenu() {
     this.showPortalMenu = !this.showPortalMenu;
-    console.log(this.showPortalMenu);
   }
 
   logout() {
     this.accountService.logout();
     this.showPortalMenu = false;
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription.unsubscribe();
   }
 }

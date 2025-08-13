@@ -5,7 +5,7 @@
       <div class="thumbnail">
         <div (click)="selectCoach('Courtney')"
              class="thumbnail-picture courtney"
-             [ngClass]="{ selected: coach === 'Courtney' }">
+             [class.selected] ="coach === 'Courtney'">
         </div>
         Courtney
       </div>
@@ -13,7 +13,7 @@
       <div class="thumbnail">
         <div (click)="selectCoach('Tarni')"
              class="thumbnail-picture tarni"
-             [ngClass]="{ selected: coach === 'Tarni' }">
+             [class.selected]="coach === 'Tarni'">
         </div>
         Tarni
       </div>
@@ -21,7 +21,7 @@
       <div class="thumbnail">
         <div (click)="selectCoach('Christina')"
              class="thumbnail-picture christina"
-             [ngClass]="{ selected: coach === 'Christina' }">
+             [class.selected]="coach === 'Christina'">
         </div>
         Christina
       </div>
