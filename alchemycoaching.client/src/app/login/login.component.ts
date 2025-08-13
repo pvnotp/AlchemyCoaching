@@ -1,9 +1,8 @@
-import { Component, HostListener, inject, input, output, OutputEmitterRef } from '@angular/core';
+import { Component, inject, output, OutputEmitterRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService, userLogin } from '../_services/account-service';
 import { Router } from '@angular/router';
-import { concatMap, finalize, mergeMap } from 'rxjs/operators';
-import { concat } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 
 @Component({
