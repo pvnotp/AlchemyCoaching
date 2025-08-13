@@ -1,11 +1,8 @@
 
-using ClientPortal.Server.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AlchemyCoaching.Server.Data;
-using Azure.Core;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Options;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
