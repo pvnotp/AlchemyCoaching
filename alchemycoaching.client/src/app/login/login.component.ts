@@ -1,6 +1,6 @@
 import { Component, inject, output, OutputEmitterRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AccountService, userLogin } from '../_services/account-service';
+import { AccountService, UserLogin } from '../_services/account-service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ export class LoginComponent {
   loading = false;
   errorMessage = "";
   registerEnabled = false;
-  userLogin: userLogin = {
+  userLogin: UserLogin = {
     email: "",
     password: ""
   }

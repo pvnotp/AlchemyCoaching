@@ -1,23 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
-import { concat, finalize, map, mergeMap, switchMap } from 'rxjs';
-import { environment } from '../../environments/environment'
+import { concat, map, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 
-
-export interface userLogin {
+export interface UserLogin {
   email: string;
   password: string;
 }
 
-export interface token {
+export interface Token {
   accessToken: string;
   expiresIn: number;
   refreshToken: string;
 }
 
 
-export interface user {
+export interface User {
   id: string | null;
   email: string | null;
   normalizedEmail: string | null;
@@ -36,11 +35,11 @@ export interface user {
 export class AccountService {
   private http = inject(HttpClient);
   baseUrl = environment.apiUrl;
-  currentUser = signal<user | null>(null);
+  currentUser = signal<User | null>(null);
 
 
-  setToken(userLogin: userLogin) {
-    return this.http.post<token>(this.baseUrl + 'users/login', userLogin).pipe(
+  setToken(userLogin: UserLogin) {
+    return this.http.post<Token>(this.baseUrl + 'users/login', userLogin).pipe(
       map((token) => {
         if (token) {
           localStorage.setItem('token', JSON.stringify(token));
@@ -49,8 +48,8 @@ export class AccountService {
     );
   }
 
-  getUser(userLogin: userLogin) {
-    return this.http.get<user>(this.baseUrl + 'users/' + userLogin.email).pipe(
+  getUser(userLogin: UserLogin) {
+    return this.http.get<User>(this.baseUrl + 'users/' + userLogin.email).pipe(
       map((user) => {
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
@@ -60,27 +59,26 @@ export class AccountService {
     );
   }
 
-  login(userLogin: userLogin) {
+  login(userLogin: UserLogin) {
     return concat(
       this.setToken(userLogin),
       this.getUser(userLogin)
     );
   }
 
-  registerUser(userLogin: userLogin, name: string) {
+  registerUser(userLogin: UserLogin, name: string) {
     return concat(
       this.http.post(this.baseUrl + 'users/register', userLogin),
-      this.http.get<user>(this.baseUrl + 'users/' + userLogin.email)
+      this.http.get<User>(this.baseUrl + 'users/' + userLogin.email)
         .pipe(switchMap(
           user => this.updateUserName(user, name)
       ))
     );
   }
 
-  updateUserName(user: user, username: string) {
+  updateUserName(user: User, username: string) {
     user.userName = username;
     user.normalizedUserName = username.toLowerCase();
-    console.log("hello");
     return this.http.put(this.baseUrl + 'users/' + user.id, user);
   }
 
