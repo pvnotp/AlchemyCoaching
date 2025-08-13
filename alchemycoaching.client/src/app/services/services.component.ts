@@ -1,27 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-services',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
-export class ServicesComponent implements OnInit{
+export class ServicesComponent{
   
   queryString: string = window.location.search;
   urlParams: URLSearchParams = new URLSearchParams(this.queryString);
   coach: string = this.urlParams.get('coach') ?? "Courtney";
 
-  ngOnInit(){
-    document.getElementsByClassName(this.coach.toLowerCase())[0].classList.add("selected");
-  }
-
   selectCoach(name: string) {
-    document.getElementsByClassName(this.coach.toLowerCase())[0].classList.remove("selected");
-    this.coach = name;
-    document.getElementsByClassName(this.coach.toLowerCase())[0].classList.add("selected");
+    if (name) {
+      this.coach = name;
+    }
   }
 
+  //TODO: use this only for logged in clients
   getCost(coachingPackage: string): number {
     if (coachingPackage == "single session") {
       if (this.coach == "Courtney") {

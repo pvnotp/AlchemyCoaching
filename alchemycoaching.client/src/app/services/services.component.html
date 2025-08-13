@@ -3,17 +3,26 @@
   <div class="page-container">
     <div class="thumbnails-container">
       <div class="thumbnail">
-        <div (click)="selectCoach('Courtney')" class="thumbnail-picture courtney"></div>
+        <div (click)="selectCoach('Courtney')"
+             class="thumbnail-picture courtney"
+             [ngClass]="{ selected: coach === 'Courtney' }">
+        </div>
         Courtney
       </div>
 
       <div class="thumbnail">
-        <div (click)="selectCoach('Tarni')" class="thumbnail-picture tarni"></div>
+        <div (click)="selectCoach('Tarni')"
+             class="thumbnail-picture tarni"
+             [ngClass]="{ selected: coach === 'Tarni' }">
+        </div>
         Tarni
       </div>
 
       <div class="thumbnail">
-        <div (click)="selectCoach('Christina')" class="thumbnail-picture christina"></div>
+        <div (click)="selectCoach('Christina')"
+             class="thumbnail-picture christina"
+             [ngClass]="{ selected: coach === 'Christina' }">
+        </div>
         Christina
       </div>
     </div>
