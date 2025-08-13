@@ -1,5 +1,4 @@
-﻿
-namespace AlchemyCoaching.Server.Entities
+﻿namespace AlchemyCoaching.Server.Entities
 {
     public class Appointment
     {
