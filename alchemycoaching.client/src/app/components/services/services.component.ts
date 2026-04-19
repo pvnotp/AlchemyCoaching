@@ -1,9 +1,8 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-services',
-  imports: [NgClass],
+  imports: [],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })

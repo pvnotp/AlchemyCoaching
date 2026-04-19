@@ -28,9 +28,9 @@ namespace AlchemyCoaching.Server.Data
             {
                 Id = new Guid().ToString(),
                 Email = "alisonjoyforster@gmail.com",
-                NormalizedEmail = "alisonjoyforster@gmail.com",
+                NormalizedEmail = "ALISONJOYFORSTER@GMAIL.COM",
                 UserName = "Alison",
-                NormalizedUserName = "alison",
+                NormalizedUserName = "ALISON",
                 TwoFactorEnabled = false
             };
 

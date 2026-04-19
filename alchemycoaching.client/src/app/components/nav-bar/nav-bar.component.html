@@ -1,5 +1,5 @@
 
-<section class="top-nav" [class.long]="accountService.currentUser()" [class.dropdown]="showDropdownMenu">
+<section class="top-nav" [class.long]="user()" [class.dropdown]="showDropdownMenu">
 
   <div class="title">Alchemy Coaching</div>
 
@@ -9,11 +9,11 @@
     <li><a routerLink="/services">Services</a></li>
     <li><a routerLink="#" class="disabled">Workshops</a></li>
 
-    @if(accountService.currentUser()){
+    @if(user()){
 
       @if(screenWidth > 900){
       <li>
-        <button (click)="togglePortalMenu()" class="dropdown-toggle">{{ accountService.currentUser()?.userName }}</button>
+        <button (click)="togglePortalMenu()" class="dropdown-toggle">{{ user()?.userName }}</button>
       </li>
       }
       @else{
@@ -33,9 +33,9 @@
     <div class="hamburger-inner"></div>
   </button>
 
-  @if(!accountService.currentUser()){
+  @if(!user()){
   <div popover id="login-popover" class="login-container">
-    <app-login (loginSuccessful)="onLoginSuccess()"></app-login>
+    <app-login></app-login>
   </div>
   }
 </section>

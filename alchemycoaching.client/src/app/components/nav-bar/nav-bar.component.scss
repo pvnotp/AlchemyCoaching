@@ -1,5 +1,5 @@
 
-@import '../../style-variables.scss';
+@use '../../../style-variables' as vars;
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
@@ -13,8 +13,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: $dark;
-  color: $light;
+  background-color: vars.$dark;
+  color: vars.$light;
   height: 50px;
   padding: 1em;
   position: sticky;
@@ -23,7 +23,7 @@
 }
 
 .title {
-  color: $light;
+  color: vars.$light;
   font-weight: 100;
   text-transform: none;
 }
@@ -46,24 +46,24 @@
 
 a {
   text-decoration: none;
-  color: $light;
+  color: vars.$light;
 }
 
 a:hover {
-  color: $medium;
+  color: vars.$medium;
 }
 
 a:target {
-  background-color: $medium;
+  background-color: vars.$medium;
 }
 
 button {
-  color: $light;
-  background-color: $dark;
+  color: vars.$light;
+  background-color: vars.$dark;
 }
 
 button:hover {
-  color: $medium;
+  color: vars.$medium;
 }
 
 .hamburger-box{
@@ -82,8 +82,8 @@ button:hover {
   flex-direction: row;
   align-items: flex-end;
   justify-content: flex-end;
-  background-color: $medium;
-  color: $dark;
+  background-color: vars.$medium;
+  color: vars.$dark;
   padding: 2px;
   padding-right: 10px;
   position: fixed;
@@ -100,12 +100,12 @@ button:hover {
 }
 
 .bottom-button {
-  background-color: $medium;
+  background-color: vars.$medium;
   color: white;
 }
 
 .bottom-button:hover {
-    color: $dark;
+    color: vars.$dark;
 }
 
 .bottom-nav a{
@@ -113,7 +113,7 @@ button:hover {
 }
 
 .bottom-nav a:hover{
-    color: $dark;
+  color: vars.$dark;
 }
 
 
@@ -147,7 +147,7 @@ button:hover {
     margin-top: -2px;
     display: block;
     content: "";
-    color: $light;
+    color: vars.$light;
   }
 
   .hamburger-inner:before {
@@ -170,7 +170,7 @@ button:hover {
     transition-duration: .15s;
     transition-property: transform;
     border-radius: 4px;
-    background-color: $light;
+    background-color: vars.$light;
   }
 
   .top-nav {
@@ -180,7 +180,7 @@ button:hover {
   .top-nav > .menu {
     display: none;
     flex-direction: column;
-    background: $dark;
+    background: vars.$dark;
   }
 
   .top-nav.dropdown {

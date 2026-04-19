@@ -1,4 +1,4 @@
-@import '../../style-variables.scss';
+@use '../../../style-variables' as vars;
 
 body {
   background-image: url('background.jpg');
@@ -18,12 +18,12 @@ body {
   gap: 20px;
   padding-top: 60px;
   backdrop-filter: brightness(80%) contrast(60%);
-  background: rgba($dark, .4);
+  background: rgba(vars.$dark, .4);
   padding-bottom: 20px;
 }
 
 .coach-container {
-  border: $medium 5px solid;
+  border: vars.$medium 5px solid;
   border-radius: 15px;
   max-width: 900px;
   overflow: hidden;
@@ -31,14 +31,14 @@ body {
 }
 
 .coach-header {
-  background-color: $medium;
+  background-color: vars.$medium;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .coach-title {
-  color: $light;
+  color: vars.$light;
   font-size: 24px;
   padding: 4px;
   flex: auto;
@@ -47,8 +47,8 @@ body {
 .coach-content {
   display: flex;
   justify-content: flex-start;
-  color: $dark;
-  background-color: $light;
+  color: vars.$dark;
+  background-color: vars.$light;
   flex-wrap: wrap;
 }
 
@@ -101,7 +101,7 @@ body {
 }
 
 .coach-description {
-  color: $dark;
+  color: vars.$dark;
   vertical-align: middle;
   padding: 10px;
   overflow: auto;
@@ -119,8 +119,8 @@ body {
 }
 
 button {
-  background-color: $medium;
-  color: $light;
+  background-color: vars.$medium;
+  color: vars.$light;
   border-radius: 50px;
   padding: 10px;
   padding-top: 5px;
@@ -133,7 +133,7 @@ button:hover {
 
 a {
   text-decoration: none;
-  color: $light;
+  color: vars.$light;
 }
 
 button:hover a{

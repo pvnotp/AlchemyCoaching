@@ -1,5 +1,5 @@
+@use '../../../style-variables' as vars;
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
-@import '../../style-variables.scss';
 
 body {
   background-image: url('courtney-full-page.jpg');
@@ -60,7 +60,7 @@ body {
   background-color: white;
   color: transparent;
   opacity: 80%;
-  color: $dark
+  color: vars.$dark
 }
 
 

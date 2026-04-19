@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject, signal } from '@angular/core';
-import { concat, map, switchMap } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { concat, switchMap, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 
@@ -35,12 +35,11 @@ export interface User {
 export class AccountService {
   private http = inject(HttpClient);
   baseUrl = environment.apiUrl;
-  currentUser = signal<User | null>(null);
 
 
   setToken(userLogin: UserLogin) {
     return this.http.post<Token>(this.baseUrl + 'users/login', userLogin).pipe(
-      map((token) => {
+      tap((token) => {
         if (token) {
           localStorage.setItem('token', JSON.stringify(token));
         }
@@ -48,21 +47,19 @@ export class AccountService {
     );
   }
 
-  getUser(userLogin: UserLogin) {
-    return this.http.get<User>(this.baseUrl + 'users/' + userLogin.email).pipe(
-      map((user) => {
+  getUser(email: string) {
+    return this.http.get<User>(this.baseUrl + 'users/' + email).pipe(
+      tap((user) => {
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
-          this.currentUser.update(() => user);
         }
       })
     );
   }
 
   login(userLogin: UserLogin) {
-    return concat(
-      this.setToken(userLogin),
-      this.getUser(userLogin)
+    return this.setToken(userLogin).pipe(
+      switchMap(() => this.getUser(userLogin.email))
     );
   }
 
@@ -86,6 +83,5 @@ export class AccountService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.currentUser.set(null);
   }
 }

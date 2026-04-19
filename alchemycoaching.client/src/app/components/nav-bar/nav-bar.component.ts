@@ -1,9 +1,11 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AccountService } from '../_services/account-service';
 import { RouterLink, Router, NavigationStart } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectUser } from '../../store/selectors/auth.selectors';
+import { LoginActions } from '../../store/actions/auth.actions';
 
 @Component({
   selector: 'app-nav-bar',
@@ -14,7 +16,8 @@ import { Subscription } from 'rxjs';
 })
 export class NavBarComponent {
 
-  accountService = inject(AccountService);
+  private store = inject(Store);
+  user = this.store.selectSignal(selectUser);
   screenWidth = window.innerWidth;
   routerSubscription: Subscription;
   showDropdownMenu: boolean = false;
@@ -42,10 +45,6 @@ export class NavBarComponent {
     this.screenWidth = window.innerWidth;
   }
 
-  onLoginSuccess() {
-    this.showPortalMenu = true;
-  }
-
   toggleDropdownMenu() {
     this.showDropdownMenu = !this.showDropdownMenu;
   }
@@ -55,7 +54,7 @@ export class NavBarComponent {
   }
 
   logout() {
-    this.accountService.logout();
+    this.store.dispatch(LoginActions.logout());
     this.showPortalMenu = false;
   }
 

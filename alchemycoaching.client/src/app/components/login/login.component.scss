@@ -1,11 +1,11 @@
-@import '../../style-variables.scss';
+@use '../../../style-variables' as vars;
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 
 .login-form {
   margin: 8px;
   padding: 5px;
-  background-color: $dark;
+  background-color: vars.$dark;
   border-radius: 5px;
 }
 
@@ -44,9 +44,9 @@ button:hover {
 }
 
 button:disabled{
-    background-color: $medium;
-    color: $dark;
-    border: $medium 3px solid;
+  background-color: vars.$medium;
+  color: vars.$dark;
+  border: vars.$medium 3px solid;
 }
 
 .login{

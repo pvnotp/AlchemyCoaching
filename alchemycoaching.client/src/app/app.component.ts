@@ -1,8 +1,10 @@
 
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AccountService } from './_services/account-service';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { User } from './services/account-service';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { Store } from '@ngrx/store';
+import { LoginActions } from './store/actions/auth.actions';
 
 
 
@@ -15,7 +17,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 })
 export class AppComponent implements OnInit {
   title = 'Client Portal';
-  accountService = inject(AccountService);
+  private store = inject(Store);
 
   ngOnInit(): void {
     this.setCurrentUser();
@@ -24,7 +26,7 @@ export class AppComponent implements OnInit {
   setCurrentUser() {
     const userString = localStorage.getItem('user');
     if (!userString) return;
-    const user = JSON.parse(userString);
-    this.accountService.currentUser.set(user);
+    const user = JSON.parse(userString) as User;
+    this.store.dispatch(LoginActions.success({ user }));
   }
 }
