@@ -1,7 +1,7 @@
 
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { User } from './services/account-service';
+import { User } from './services/auth-service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { Store } from '@ngrx/store';
 import { LoginActions } from './store/actions/auth.actions';

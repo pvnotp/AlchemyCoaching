@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { User, UserLogin } from '../../services/account-service';
+import { User, UserLogin } from '../../services/auth-service';
 
 export const LoginActions = createActionGroup({
   source: 'Login',
@@ -8,5 +8,14 @@ export const LoginActions = createActionGroup({
     Success: props<{ user: User }>(),
     Failure: props<{ error: unknown }>(),
     Logout: emptyProps()
+  }
+});
+
+export const RoleActions = createActionGroup({
+  source: 'Role',
+  events: {
+    Fetch: emptyProps(),
+    Success: props<{ role: string }>(),
+    Failure: props<{ error: unknown }>()
   }
 });

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AlchemyCoaching.Server.Data;
+using AlchemyCoaching.Server.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddDbContext<AlchemyDbContext>(options =>
 {    
     options.UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnection"), options => options.EnableRetryOnFailure());

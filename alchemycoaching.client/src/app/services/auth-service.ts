@@ -32,7 +32,7 @@ export interface User {
   providedIn: 'root',
 })
 
-export class AccountService {
+export class AuthService {
   private http = inject(HttpClient);
   baseUrl = environment.apiUrl;
 
@@ -48,13 +48,11 @@ export class AccountService {
   }
 
   getUser(email: string) {
-    return this.http.get<User>(this.baseUrl + 'users/' + email).pipe(
-      tap((user) => {
-        if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
-        }
-      })
-    );
+    return this.http.get<User>(this.baseUrl + 'auth/' + email);
+  }
+
+  getUserRole(userId: string) {
+    return this.http.get<string>(this.baseUrl + 'auth/' + userId + '/role');
   }
 
   login(userLogin: UserLogin) {
@@ -62,24 +60,7 @@ export class AccountService {
       switchMap(() => this.getUser(userLogin.email))
     );
   }
-
-  registerUser(userLogin: UserLogin, name: string) {
-    return concat(
-      this.http.post(this.baseUrl + 'users/register', userLogin),
-      this.http.get<User>(this.baseUrl + 'users/' + userLogin.email)
-        .pipe(switchMap(
-          user => this.updateUserName(user, name)
-      ))
-    );
-  }
-
-  updateUserName(user: User, username: string) {
-    user.userName = username;
-    user.normalizedUserName = username.toLowerCase();
-    return this.http.put(this.baseUrl + 'users/' + user.id, user);
-  }
-
-
+  
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');

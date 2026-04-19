@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { UserLogin } from '../../services/account-service';
+import { UserLogin } from '../../services/auth-service';
 import { Store } from '@ngrx/store';
 import { LoginActions } from '../../store/actions/auth.actions';
 import { selectLoginErrorMessage, selectLoginLoading, selectUser } from '../../store/selectors/auth.selectors';
