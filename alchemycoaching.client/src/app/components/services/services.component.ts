@@ -1,34 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { selectUser } from '../../store/selectors/auth.selectors';
 
 @Component({
   selector: 'app-services',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
 export class ServicesComponent{
-  
-  queryString: string = window.location.search;
-  urlParams: URLSearchParams = new URLSearchParams(this.queryString);
-  coach: string = this.urlParams.get('coach') ?? "Courtney";
-
-  selectCoach(name: string) {
-    if (name) {
-      this.coach = name;
-    }
-  }
-
-  //TODO: use this only for logged in clients
-  getCost(coachingPackage: string): number {
-    if (coachingPackage == "single session") {
-      if (this.coach == "Courtney") {
-        return 95;
-      }
-      else {
-        return 75;
-      }
-    }
-    return 0;
-  }
+  private store = inject(Store);
+  user = this.store.selectSignal(selectUser);
 
 }
