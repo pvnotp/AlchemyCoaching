@@ -192,6 +192,9 @@ publish/
 # in these scripts will be unencrypted
 PublishScripts/
 
+# Local publish output used for ad-hoc validation
+AlchemyCoaching.Server/publish-test/
+
 # NuGet Packages
 *.nupkg
 # NuGet Symbol Packages
