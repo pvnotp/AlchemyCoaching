@@ -41,6 +41,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/global-styles.scss",
               "src/style-variables.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
@@ -112,6 +113,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/global-styles.scss",
               "src/style-variables.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
