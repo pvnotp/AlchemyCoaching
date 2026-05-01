@@ -23,6 +23,13 @@ jobs:
         with:
           dotnet-version: '8.x'
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: alchemycoaching.client/package-lock.json
+
       - name: Clean stale build artifacts
         shell: pwsh
         run: |
@@ -30,6 +37,13 @@ jobs:
           if (Test-Path "AlchemyCoaching.Server/bin") { Remove-Item -Recurse -Force "AlchemyCoaching.Server/bin" }
           if (Test-Path "alchemycoaching.client/obj") { Remove-Item -Recurse -Force "alchemycoaching.client/obj" }
           dotnet clean "AlchemyCoaching.Server/AlchemyCoaching.Server.csproj" -c Release
+
+      - name: Build Angular client
+        shell: pwsh
+        run: |
+          Set-Location "alchemycoaching.client"
+          npm ci
+          npm run build
 
       - name: dotnet publish
         run: dotnet publish "AlchemyCoaching.Server/AlchemyCoaching.Server.csproj" -c Release -o "${{env.DOTNET_ROOT}}/myapp"
