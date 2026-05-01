@@ -26,6 +26,16 @@
   background-color: rgba(190, 190, 190, 0.3);
 }
 
+.home-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  height: clamp(75dvh, 85vw, 100dvh);
+}
+
 .button-container {
   position: absolute;
   top: 0;
@@ -55,7 +65,7 @@
 }
 
 .title-container {
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
   display: flex;
   flex-direction: column;
