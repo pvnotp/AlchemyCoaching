@@ -99,9 +99,9 @@
 @media (max-width: 600px) {
   .home-content {
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: clamp(1.5rem, 15vh, 9rem) 0 clamp(0.75rem, 3vh, 1.5rem);
+    padding: clamp(3em, 10vh, 9rem) 0 0
   }
 
   .button-container {
@@ -110,12 +110,5 @@
 
   .title-container {
     order: 2;
-  }
-}
-
-@media (max-width: 450px) {
-
-  .button-container {
-    width: clamp(16rem, 80vw, 22rem);
   }
 }
