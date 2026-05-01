@@ -74,7 +74,11 @@
 }
 
 .large-font {
-  font-size: clamp(5rem, 10vw, 9rem);
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1;
+  transform: scale(1.28);
+  transform-origin: 50% 72%;
 }
 
 .position-1 {
