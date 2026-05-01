@@ -19,12 +19,16 @@
   border-radius: 4px;
   font-family: "Tenor Sans", sans-serif;
   font-size: clamp(0.9rem, 6cqi, 1.9rem);
-  letter-spacing: .2em;
+  letter-spacing: .15em;
   font-weight: 400;
   padding: clamp(0.35rem, 1.1cqi, 0.7rem) clamp(0.5rem, 2cqi, 1rem);
   color: white;
   white-space: nowrap;
   background-color: rgb(0,0,0,20%);
+}
+
+.stretch {
+  width: 100%;
 }
 
 .button:hover {
