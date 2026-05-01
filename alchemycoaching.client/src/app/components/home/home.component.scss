@@ -43,7 +43,7 @@
   align-items: stretch;
   container-type: inline-size;
   gap: 0.25rem;
-  width: 16rem;
+  width: clamp(16rem, 30vw, 24rem);
 }
 
 .button-row {
