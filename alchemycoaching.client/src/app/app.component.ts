@@ -1,14 +1,15 @@
 
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavBarComponent],
   standalone: true,
   styleUrl: './app.component.css'
 })

@@ -1,0 +1,17 @@
+<section class="top-nav" [class.dropdown]="showDropdownMenu" aria-label="Main navigation">
+  <div class="title">Samantha Smith, HZS.</div>
+
+  <ul class="menu">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
+    <li><a routerLink="/events" routerLinkActive="active">Events</a></li>
+    <li><a routerLink="/art" routerLinkActive="active">Art</a></li>
+    <li><a routerLink="/vibe-check" routerLinkActive="active">Vibe Check</a></li>
+    <li><a routerLink="/login" routerLinkActive="active">Log In</a></li>
+  </ul>
+
+  <button class="hamburger-box" type="button" (click)="toggleDropdownMenu()" aria-label="Toggle menu">
+    <span class="hamburger-inner"></span>
+  </button>
+</section>
