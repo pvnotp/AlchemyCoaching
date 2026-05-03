@@ -2,7 +2,6 @@
 {
     public enum Role
     {
-        Coach,
         Client,
         Admin
     }
