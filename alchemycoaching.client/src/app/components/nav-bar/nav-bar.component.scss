@@ -129,6 +129,10 @@ a.active {
     display: none;
   }
 
+  .top-nav.dropdown {
+    padding-right: 1em;
+  }
+
   .top-nav.dropdown > .menu {
     display: flex;
   }
