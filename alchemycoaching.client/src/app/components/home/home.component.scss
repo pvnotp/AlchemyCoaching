@@ -22,7 +22,7 @@
 
 .overlay-layer {
   z-index: 2;
-  background-color: rgba(190, 190, 190, 0.3);
+  background-color: rgba(50, 50, 50, 0.3);
 }
 
 .home-content {
@@ -71,6 +71,7 @@
 
 .title {
   color: #fff;
+  opacity: 80%;
   text-align: left;
   line-height: 1;
   font-size: clamp(4rem, 8vw, 7rem);
