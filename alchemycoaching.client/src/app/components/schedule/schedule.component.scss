@@ -38,10 +38,7 @@
 }
 
 .schedule-header {
-  position: relative;
-  z-index: 3;
-  width: min(100%, 78rem);
-  margin-bottom: 1rem;
+  grid-column: 1 / -1;
 }
 
 .description-panel {

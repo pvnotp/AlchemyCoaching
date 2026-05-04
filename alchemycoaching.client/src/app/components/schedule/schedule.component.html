@@ -2,11 +2,11 @@
   <div class="background-layer" aria-hidden="true"></div>
   <div class="overlay-layer" aria-hidden="true"></div>
 
-  <div class="schedule-header">
-    <div class="title display-font">{{ titleText }}</div>
-  </div>
-
   <div class="schedule-content">
+    <div class="schedule-header">
+      <div class="title display-font">{{ titleText }}</div>
+    </div>
+
     <div class="description-panel">
       <div class="content-card default-font panel-card">
         <p>
@@ -16,11 +16,11 @@
     </div>
 
     <div class="calendar-panel">
-      <app-date-picker></app-date-picker>
+      <app-date-picker (dateSelected)="onDateSelected($event)"></app-date-picker>
     </div>
 
     <div class="time-panel">
-      <app-time-picker></app-time-picker>
+      <app-time-picker [selectedDate]="selectedDate"></app-time-picker>
     </div>
   </div>
 </div>

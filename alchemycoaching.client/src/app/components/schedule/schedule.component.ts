@@ -15,6 +15,11 @@ export class ScheduleComponent implements OnInit {
 
   type = '';
   duration = '';
+  selectedDate = (() => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; })();
+
+  onDateSelected(date: Date): void {
+    this.selectedDate = date;
+  }
 
   get titleText(): string {
     const normalizedType = this.type.trim().toLowerCase();
