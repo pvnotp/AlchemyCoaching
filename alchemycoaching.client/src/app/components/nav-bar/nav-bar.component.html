@@ -1,7 +1,7 @@
 <section class="top-nav" [class.dropdown]="showDropdownMenu" aria-label="Main navigation">
   <div class="title">Samantha Smith</div>
 
-  <ul class="menu">
+  <ul class="menu" (click)="collapseDropdownMenu()">
     <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
     <li><a routerLink="/about" routerLinkActive="active">About</a></li>
     <li><a routerLink="/services" routerLinkActive="active">Services</a></li>

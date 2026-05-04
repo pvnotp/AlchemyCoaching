@@ -14,4 +14,8 @@ export class NavBarComponent {
   toggleDropdownMenu(): void {
     this.showDropdownMenu = !this.showDropdownMenu;
   }
+
+  collapseDropdownMenu(): void {
+    this.showDropdownMenu = false;
+  }
 }
