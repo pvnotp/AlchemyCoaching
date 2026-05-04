@@ -1,10 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
+import { TimePickerComponent } from '../time-picker/time-picker.component';
 
 @Component({
   selector: 'app-schedule',
   standalone: true,
-  imports: [],
+  imports: [DatePickerComponent, TimePickerComponent],
   templateUrl: './schedule.component.html',
   styleUrl: './schedule.component.scss'
 })

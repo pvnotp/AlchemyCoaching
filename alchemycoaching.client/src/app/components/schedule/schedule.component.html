@@ -2,12 +2,25 @@
   <div class="background-layer" aria-hidden="true"></div>
   <div class="overlay-layer" aria-hidden="true"></div>
 
-  <div class="card-container">
+  <div class="schedule-header">
     <div class="title display-font">{{ titleText }}</div>
-    <div class="content-card default-font">
-      <p>
-        {{ contentText }}
-      </p>
+  </div>
+
+  <div class="schedule-content">
+    <div class="description-panel">
+      <div class="content-card default-font panel-card">
+        <p>
+          {{ contentText }}
+        </p>
+      </div>
+    </div>
+
+    <div class="calendar-panel">
+      <app-date-picker></app-date-picker>
+    </div>
+
+    <div class="time-panel">
+      <app-time-picker></app-time-picker>
     </div>
   </div>
 </div>
