@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddSingleton<IGoogleCalendarService, GoogleCalendarService>();
 builder.Services.AddDbContext<AlchemyDbContext>(options =>
 {    
     options.UseSqlServer(builder.Configuration.GetConnectionString("AzureDbConnection"), options => options.EnableRetryOnFailure());
