@@ -1,33 +1,25 @@
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
+using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
 
 namespace AlchemyCoaching.Server.Services
 {
-    public class GoogleCalendarService : IGoogleCalendarService
+    public class GoogleCalendarService(IConfiguration configuration) : IGoogleCalendarService
     {
-        private readonly CalendarService _calendarService;
-        private readonly string _calendarId;
+        private readonly string _calendarId = configuration["GoogleCalendar:CalendarId"]
+            ?? throw new InvalidOperationException("GoogleCalendar:CalendarId is not configured.");
 
-        public GoogleCalendarService(IConfiguration configuration)
+        private readonly CalendarService _calendarService = new CalendarService(new BaseClientService.Initializer
         {
-            var json = configuration["GoogleCalendar:ServiceAccountJson"]
-                ?? throw new InvalidOperationException("GoogleCalendar:ServiceAccountJson is not configured.");
-
-            _calendarId = configuration["GoogleCalendar:CalendarId"]
-                ?? throw new InvalidOperationException("GoogleCalendar:CalendarId is not configured.");
-
-            var credential = CredentialFactory
-                .FromJson<ServiceAccountCredential>(json)
+            HttpClientInitializer = CredentialFactory
+                .FromJson<ServiceAccountCredential>(
+                    configuration["GoogleCalendar:ServiceAccountJson"]
+                        ?? throw new InvalidOperationException("GoogleCalendar:ServiceAccountJson is not configured."))
                 .ToGoogleCredential()
-                .CreateScoped(CalendarService.Scope.CalendarReadonly);
-
-            _calendarService = new CalendarService(new BaseClientService.Initializer
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = "AlchemyCoaching"
-            });
-        }
+                .CreateScoped(CalendarService.Scope.Calendar),
+            ApplicationName = "AlchemyCoaching"
+        });
 
         public async Task<IList<CalendarEventDto>> GetEventsAsync(DateTime? from, DateTime? to)
         {
@@ -60,6 +52,36 @@ namespace AlchemyCoaching.Server.Services
                     IsAllDay = !string.IsNullOrWhiteSpace(e.Start?.Date),
                 })
                 .ToList();
+        }
+
+        public async Task<CalendarEventDto> CreateEventAsync(CreateEventRequest request)
+        {
+            if (request.End <= request.Start)
+            {
+                throw new ArgumentException("The 'End' value must be greater than 'Start'.");
+            }
+
+            var newEvent = new Event
+            {
+                Summary = request.Summary,
+                Description = request.Description,
+                Location = request.Location,
+                Start = new EventDateTime { DateTimeDateTimeOffset = request.Start },
+                End = new EventDateTime { DateTimeDateTimeOffset = request.End },
+            };
+
+            var created = await _calendarService.Events.Insert(newEvent, _calendarId).ExecuteAsync();
+
+            return new CalendarEventDto
+            {
+                Id = created.Id,
+                Summary = created.Summary,
+                Start = created.Start?.DateTimeDateTimeOffset ?? ToDateTimeOffset(created.Start?.Date),
+                End = created.End?.DateTimeDateTimeOffset ?? ToDateTimeOffset(created.End?.Date),
+                HtmlLink = created.HtmlLink,
+                Status = created.Status,
+                IsAllDay = !string.IsNullOrWhiteSpace(created.Start?.Date),
+            };
         }
 
         private static DateTimeOffset? ToDateTimeOffset(string? date)

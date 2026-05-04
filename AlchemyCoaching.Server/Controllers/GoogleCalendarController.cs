@@ -20,5 +20,19 @@ namespace AlchemyCoaching.Server.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost("events")]
+        public async Task<ActionResult<CalendarEventDto>> CreateEvent([FromBody] CreateEventRequest request)
+        {
+            try
+            {
+                var created = await googleCalendarService.CreateEventAsync(request);
+                return CreatedAtAction(nameof(GetEvents), created);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
