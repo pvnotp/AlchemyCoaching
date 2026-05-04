@@ -1,24 +1,45 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ConfirmAppointmentComponent } from '../confirm-appointment/confirm-appointment.component';
 import { DatePickerComponent } from '../date-picker/date-picker.component';
-import { TimePickerComponent } from '../time-picker/time-picker.component';
+import { TimePickerComponent, TimeSlot } from '../time-picker/time-picker.component';
 
 @Component({
   selector: 'app-schedule',
   standalone: true,
-  imports: [DatePickerComponent, TimePickerComponent],
+  imports: [DatePickerComponent, TimePickerComponent, ConfirmAppointmentComponent],
   templateUrl: './schedule.component.html',
   styleUrl: './schedule.component.scss'
 })
 export class ScheduleComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
 
+  @ViewChild(TimePickerComponent) private readonly timePicker?: TimePickerComponent;
+
   type = '';
   duration = '';
   selectedDate = (() => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; })();
+  selectedSlot: TimeSlot | null = null;
+  isDialogOpen = false;
 
   onDateSelected(date: Date): void {
     this.selectedDate = date;
+    this.closeDialog();
+  }
+
+  openAppointmentDialog(slot: TimeSlot): void {
+    this.selectedSlot = slot;
+    this.isDialogOpen = true;
+  }
+
+  closeDialog(): void {
+    this.isDialogOpen = false;
+    this.selectedSlot = null;
+  }
+
+  onAppointmentCreated(): void {
+    this.closeDialog();
+    this.timePicker?.refreshAvailability();
   }
 
   get titleText(): string {

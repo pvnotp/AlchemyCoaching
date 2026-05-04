@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalendarService, CalendarEvent } from '../../../services/calendar.service';
 
@@ -19,6 +19,7 @@ export interface TimeSlot {
 })
 export class TimePickerComponent implements OnChanges {
   @Input() selectedDate: Date | null = null;
+  @Output() confirmRequested = new EventEmitter<TimeSlot>();
 
   private readonly calendarService = inject(CalendarService);
 
@@ -44,6 +45,12 @@ export class TimePickerComponent implements OnChanges {
 
   confirmSelection(event: Event): void {
     event.stopPropagation();
+
+    if (!this.selectedSlot) {
+      return;
+    }
+
+    this.confirmRequested.emit(this.selectedSlot);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -67,6 +74,14 @@ export class TimePickerComponent implements OnChanges {
         this.isLoading = false;
       }
     });
+  }
+
+  refreshAvailability(): void {
+    if (!this.selectedDate) {
+      return;
+    }
+
+    this.loadEvents(this.selectedDate);
   }
 
   private buildSlots(date: Date, events: CalendarEvent[]): TimeSlot[] {
@@ -103,5 +118,9 @@ export class TimePickerComponent implements OnChanges {
 
   private getSlotKey(slot: TimeSlot): string {
     return `${slot.hour}-${slot.minute}`;
+  }
+
+  get selectedSlot(): TimeSlot | null {
+    return this.slots.find((slot) => this.getSlotKey(slot) === this.selectedSlotKey) ?? null;
   }
 }

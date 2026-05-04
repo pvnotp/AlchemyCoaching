@@ -1,0 +1,167 @@
+@use '../../../../style-variables.scss' as vars;
+
+.appointment-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(vars.$dark, 0.42);
+  backdrop-filter: blur(3px);
+}
+
+.appointment-dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 21;
+  width: min(calc(100% - 2rem), 32rem);
+  padding: 1.2rem;
+  border: 1px solid rgba(vars.$light, 0.28);
+  border-radius: 0.9rem;
+  background: vars.$dark;
+  color: vars.$medium;
+  box-shadow: 0 1.4rem 3rem rgba(vars.$dark, 0.28);
+}
+
+.appointment-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.appointment-dialog-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: vars.$light;
+}
+
+.appointment-dialog-header p {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  color: vars.$light;
+}
+
+.dialog-close-button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: vars.$medium;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.appointment-form-field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.appointment-form-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: vars.$light;
+}
+
+.appointment-form-field input,
+.appointment-form-field textarea {
+  width: 100%;
+  padding: 0.72rem 0.82rem;
+  border: 1px solid rgba(vars.$light, 0.18);
+  border-radius: 0.55rem;
+  background: vars.$medium;
+  color: vars.$dark;
+  caret-color: vars.$dark;
+  font: inherit;
+}
+
+.appointment-form-field input::placeholder,
+.appointment-form-field textarea::placeholder {
+  color: rgba(vars.$dark, 0.6);
+}
+
+.appointment-form-field textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.appointment-form-field input:focus,
+.appointment-form-field textarea:focus {
+  background: vars.$medium;
+  outline: 2px solid rgba(vars.$light, 0.16);
+  border-color: rgba(vars.$light, 0.42);
+}
+
+.appointment-form-field input:-webkit-autofill,
+.appointment-form-field input:-webkit-autofill:hover,
+.appointment-form-field input:-webkit-autofill:focus,
+.appointment-form-field textarea:-webkit-autofill,
+.appointment-form-field textarea:-webkit-autofill:hover,
+.appointment-form-field textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: vars.$dark;
+  -webkit-box-shadow: 0 0 0 1000px vars.$medium inset;
+  box-shadow: 0 0 0 1000px vars.$medium inset;
+  caret-color: vars.$dark;
+}
+
+.appointment-error {
+  margin: 0 0 0.9rem;
+  font-size: 0.82rem;
+  color: vars.$light;
+}
+
+.appointment-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.dialog-secondary-button,
+.dialog-primary-button {
+  appearance: none;
+  border: 1px solid rgba(vars.$medium, 0.55);
+  background: vars.$medium;
+  color: vars.$dark;
+  border-radius: 999px;
+  padding: 0.68rem 1.1rem;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0.7rem 1.4rem rgba(vars.$dark, 0.16);
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.dialog-primary-button:disabled {
+  border-color: vars.$medium;
+  background: vars.$dark;
+  color: vars.$medium;
+}
+
+.dialog-primary-button:not(:disabled) {
+  background: vars.$medium;
+  border-color: rgba(vars.$medium, 0.55);
+  color: vars.$dark;
+}
+
+.dialog-secondary-button:hover,
+.dialog-primary-button:hover {
+  transform: translateY(-1px);
+}
+
+.dialog-secondary-button:disabled,
+.dialog-primary-button:disabled,
+.dialog-close-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 640px) {
+  .appointment-dialog {
+    width: min(calc(100% - 1rem), 32rem);
+    padding: 1rem;
+  }
+}

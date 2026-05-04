@@ -20,7 +20,15 @@
     </div>
 
     <div class="time-panel">
-      <app-time-picker [selectedDate]="selectedDate"></app-time-picker>
+      <app-time-picker [selectedDate]="selectedDate" (confirmRequested)="openAppointmentDialog($event)"></app-time-picker>
     </div>
   </div>
+
+  <app-confirm-appointment
+    [isOpen]="isDialogOpen && !!selectedSlot"
+    [selectedDate]="selectedDate"
+    [selectedSlot]="selectedSlot"
+    (closeRequested)="closeDialog()"
+    (appointmentCreated)="onAppointmentCreated()"
+  ></app-confirm-appointment>
 </div>

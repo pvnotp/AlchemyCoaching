@@ -11,6 +11,14 @@ export interface CalendarEvent {
   status: string;
 }
 
+export interface CreateCalendarEventRequest {
+  summary: string;
+  start: string;
+  end: string;
+  description: string;
+  location?: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class CalendarService {
   private readonly http = inject(HttpClient);
@@ -28,5 +36,9 @@ export class CalendarService {
         to: to.toISOString()
       }
     });
+  }
+
+  createEvent(request: CreateCalendarEventRequest): Observable<CalendarEvent> {
+    return this.http.post<CalendarEvent>('/calendar/events', request);
   }
 }
