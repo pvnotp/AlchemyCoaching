@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CalendarService, CalendarEvent } from '../../services/calendar.service';
+import { CalendarService, CalendarEvent } from '../../../services/calendar.service';
 
 export interface TimeSlot {
   hour: number;
